@@ -1,4 +1,19 @@
+# Ignore temporary python scratch scripts
+*.py
+!build_dark_glowup_landing.py
+*.txt
+*.js
 __pycache__/
 *.pyc
 .DS_Store
 *.log
+art-d-etre-desiree-app/
+bonus-1-10-sms-app/
+bonus-2-5-gestes-app/
+bonus-3-10-affirmations-app/
+elysiane-dora-rose-landing/
+lina-rela-ebook/
+sauver-ton-couple-landing/
+*.html
+!index.html
+!landing_page.html
