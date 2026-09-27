@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', 'Bodoni Moda', Georgia, serif;
+    --font-sans: 'Inter', sans-serif;
+  }
+}
+
+.font-serif-title {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.page-shadow {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.sms-card-container {
+  min-height: auto;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}

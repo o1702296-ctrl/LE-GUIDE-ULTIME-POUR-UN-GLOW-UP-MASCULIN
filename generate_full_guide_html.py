@@ -1,0 +1,1696 @@
+# -*- coding: utf-8 -*-
+import os
+
+html_head = """<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAUVER TON COUPLE SANS PERDRE TA DIGNITÉ — Document PDF — Lina Rela</title>
+    <meta name="description" content="Guide premium de couple pour l'homme moderne par Lina Rela. 10 chapitres complets, plan 30 jours, exercices pratiques et outils de communication pour apaiser votre foyer.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --pdf-bg: #150529;
+            --page-bg: #faf5ff;
+            --text-color: #2b2b2b;
+            --text-heading: #4c1d95;
+            --accent-gold: #c68a27;
+            --accent-gold-light: #fbbf24;
+            --accent-pink: #d946ef;
+            --accent-magenta: #6b21a8;
+            --border-color: #e9d5ff;
+            --box-gold-bg: #fffbeb;
+            --box-sister-bg: #fdf2f8;
+            --box-metaphor-bg: #f0f9ff;
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            background-color: var(--pdf-bg);
+            font-family: var(--font-main);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            top: 0px !important;
+            position: static !important;
+            padding-top: 65px;
+            padding-bottom: 50px;
+        }
+
+        /* Google Translate Banner Fix */
+        .goog-te-banner-frame, iframe.skiptranslate, .VIpgJd-Z44p5e-FW12eb-tjhup { display: none !important; }
+        #goog-gt-tt { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+
+        /* Fixed PDF Navigation Toolbar */
+        .pdf-toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #1a0636; border-bottom: 1.5px solid #a855f7;
+            color: #f9f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 2000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-bottom: 1px solid #333;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pdf-title-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .pdf-title-info i { color: var(--accent-pink); font-size: 1.1rem; }
+
+        .pdf-controls-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chapter-select {
+            background: #2b2b30;
+            border: 1px solid #444;
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            max-width: 280px;
+        }
+
+        .chapter-select option {
+            background: #1a0636; border-bottom: 1.5px solid #a855f7;
+            color: #ffffff;
+        }
+
+        .pdf-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-pdf-print { display: none !important; 
+            background: linear-gradient(135deg, var(--accent-gold), #b47a1e);
+            color: #fff;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(198, 138, 39, 0.4);
+        }
+
+        .btn-pdf-print:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.1);
+        }
+
+        .pdf-lang-dropdown {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #2b2b30;
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid #444;
+        }
+
+        #custom-language-select {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #custom-language-select option {
+            background: #1a0636; border-bottom: 1.5px solid #a855f7;
+            color: #ffffff;
+        }
+
+        /* Document Container & Page Structure */
+        .pdf-document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            padding: 10px;
+        }
+
+        .pdf-page {
+            background: var(--page-bg);
+            width: 100%;
+            min-height: 1100px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+            border-radius: 6px;
+            padding: 50px 60px 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-margin-top: 80px;
+        }
+
+        .pdf-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 0.85rem;
+            color: var(--accent-magenta);
+            font-style: italic;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .pdf-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--accent-magenta);
+            font-weight: 700;
+        }
+
+        .pdf-body { flex: 1; }
+
+        /* Cover Page Styling */
+        .pdf-page.cover-page {
+            background: linear-gradient(135deg, #3b0764 0%, #1e0538 60%, #120326 100%);
+            color: #ffffff;
+            padding: 60px 40px 0px;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .cover-top-header {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .cover-main-title {
+            font-size: 3.6rem;
+            font-weight: 900;
+            line-height: 1.05;
+            margin: 30px 0 10px;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+        }
+
+        .cover-subtitle {
+            font-size: 1.9rem;
+            color: var(--accent-gold-light);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+        }
+
+        .cover-stars { color: var(--accent-gold-light); font-size: 1.4rem; margin: 15px 0; letter-spacing: 6px; }
+
+        .cover-tagline { font-size: 1.1rem; font-style: italic; color: #fbcfe8; max-width: 600px; margin: 0 auto 25px; }
+
+        .cover-author-wrapper {
+            border-top: 2px solid var(--accent-gold-light);
+            border-bottom: 2px solid var(--accent-gold-light);
+            padding: 12px 0;
+            margin: 25px auto;
+            max-width: 520px;
+        }
+
+        .cover-author-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-gold-light);
+            font-style: italic;
+            font-family: var(--font-heading);
+        }
+
+        .cover-author-role { font-size: 0.95rem; color: #ffffff; margin-top: 4px; }
+
+        .cover-badges-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 650px;
+            margin: 25px auto 30px;
+        }
+
+        .cover-badge-item {
+            border: 1.5px solid rgba(251, 191, 36, 0.6);
+            border-radius: 8px;
+            padding: 10px 4px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: rgba(0,0,0,0.35);
+        }
+
+        .cover-bottom-bar {
+            background: #d97706;
+            color: #0f0318;
+            font-weight: 800;
+            padding: 18px 20px;
+            font-size: 0.95rem;
+            margin-left: -40px;
+            margin-right: -40px;
+        }
+
+        /* Typography & Content Elements */
+        h1.page-h1 {
+            font-family: var(--font-heading);
+            color: var(--text-heading);
+            font-size: 2.1rem;
+            margin-bottom: 8px;
+        }
+
+        h2.page-h2 {
+            font-family: var(--font-heading);
+            color: var(--text-heading);
+            font-size: 1.5rem;
+            margin: 24px 0 12px;
+            border-bottom: 2px solid #fce7f3;
+            padding-bottom: 4px;
+        }
+
+        h3.page-h3 {
+            font-family: var(--font-heading);
+            color: var(--text-heading);
+            font-size: 1.2rem;
+            margin: 18px 0 8px;
+        }
+
+        .page-sub { color: #be123c; font-style: italic; font-size: 1.08rem; margin-bottom: 20px; }
+
+        p.para { margin-bottom: 16px; text-align: justify; font-size: 0.98rem; line-height: 1.7; }
+
+        /* Boxes & Components */
+        .pdf-quote-box {
+            border: 1.5px solid var(--accent-gold);
+            background: var(--box-gold-bg);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 22px 0;
+            text-align: center;
+        }
+
+        .pdf-quote-text {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #854d0e;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .pdf-sister-box {
+            border: 1.5px solid #a855f7;
+            background: var(--box-sister-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 22px 0;
+        }
+
+        .pdf-sister-header {
+            background: #7e22ce;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.92rem;
+            padding: 5px 14px;
+            display: inline-block;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .pdf-metaphor-box {
+            border: 1.5px solid #7e22ce;
+            background: var(--box-metaphor-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 22px 0;
+        }
+
+        .pdf-metaphor-header {
+            background: #581c87;
+            color: #ffffff;
+            font-weight: 800;
+            padding: 10px 16px;
+            font-size: 0.98rem;
+        }
+
+        .pdf-metaphor-body { padding: 16px; font-size: 0.95rem; line-height: 1.65; }
+
+        /* Table of Contents Clickable Items */
+        .toc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .toc-item {
+            display: block;
+            text-decoration: none;
+            border-bottom: 1px dashed #f43f5e;
+            padding-bottom: 8px;
+            padding-top: 4px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .toc-item:hover {
+            background: #fdf2f8;
+            padding-left: 10px;
+        }
+
+        .toc-title { font-weight: 800; color: var(--text-heading); font-size: 1.08rem; }
+        .toc-desc { font-style: italic; color: #666; font-size: 0.92rem; margin-top: 2px; }
+
+        /* Checklists */
+        .checklist { list-style: none; margin: 16px 0; }
+        .checklist li { position: relative; padding-left: 28px; margin-bottom: 10px; font-size: 0.96rem; line-height: 1.6; }
+        .checklist li::before { content: "✓"; position: absolute; left: 0; color: #be123c; font-weight: 900; font-size: 1.1rem; }
+        .checklist-cross li::before { content: "✗"; color: #dc2626; }
+
+        .chapter-badge {
+            background: #7e22ce;
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { padding-top: 0; background: #fff; }
+            .pdf-toolbar { display: none !important; }
+            .pdf-document-container { padding: 0; max-width: 100%; gap: 0; }
+            .pdf-page { box-shadow: none; border-radius: 0; page-break-after: always; min-height: 100vh; padding: 40px; }
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 768px) {
+            .pdf-page { padding: 30px 20px 25px; }
+            .cover-main-title { font-size: 2.5rem; }
+            .cover-subtitle { font-size: 1.4rem; }
+            .cover-badges-grid { grid-template-columns: repeat(2, 1fr); }
+            .pdf-toolbar { height: auto; padding: 10px; justify-content: center; }
+            .chapter-select { max-width: 100%; }
+        }
+    
+        /* Arabic RTL Layout Support */
+        html[dir="rtl"] body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        html[dir="rtl"] .pdf-header {
+            justify-content: flex-start;
+        }
+
+        html[dir="rtl"] .pdf-title-info {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .toc-item:hover {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
+        html[dir="rtl"] .intro-box {
+            border-left: none;
+            border-right: 4px solid #7e22ce;
+        }
+
+        html[dir="rtl"] .phrase-card, html[dir="rtl"] .error-card {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .error-details {
+            padding-left: 0;
+            padding-right: 48px;
+        }
+
+        html[dir="rtl"] p.para {
+            text-align: right;
+        }
+
+        html[dir="rtl"] .cover-badges-grid {
+            direction: rtl;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Fixed PDF Control Toolbar -->
+    <div class="pdf-toolbar">
+        <div class="pdf-title-info">
+            <i class="fa-solid fa-file-pdf"></i> SAUVER TON COUPLE SANS PERDRE TA DIGNITÉ
+        </div>
+        <div class="pdf-controls-center">
+            <select class="chapter-select" id="quick-chapter-select" onchange="if(this.value){ scrollToSection(this.value); }">
+                <option value="">📖 Aller au chapitre / partie...</option>
+                <option value="couverture">Couverture</option>
+                <option value="avant-propos">Avant-Propos</option>
+                <option value="toc">Table des Matières</option>
+                <option value="dedicace">Dédicace</option>
+                <option value="introduction">Introduction</option>
+                <option value="chapitre-1">Chapitre 1 — Diagnostic de l'Ombre</option>
+                <option value="chapitre-2">Chapitre 2 — Miroir de l'Homme</option>
+                <option value="chapitre-3">Chapitre 3 — Se Faire Respecter</option>
+                <option value="chapitre-4">Chapitre 4 — Le Lit Froid</option>
+                <option value="chapitre-5">Chapitre 5 — Communication Haute Tension</option>
+                <option value="chapitre-6">Chapitre 6 — Gérer la Tribu</option>
+                <option value="chapitre-7">Chapitre 7 — Éduquer à Deux</option>
+                <option value="chapitre-8">Chapitre 8 — Transformer Frustration</option>
+                <option value="chapitre-9">Chapitre 9 — Plan 30 Jours</option>
+                <option value="chapitre-10">Chapitre 10 — Quand Partir ?</option>
+                <option value="conclusion">Conclusion</option>
+                <option value="annexe">Annexe & Outils</option>
+            </select>
+        </div>
+        <div class="pdf-controls-right">
+                        <button id="btn-global-voice-start" class="btn-voice-toggle" onclick="VoiceReader.toggle()">
+                <i class="fa-solid fa-volume-high"></i> <span id="top-voice-btn-text">Écouter</span>
+            </button>
+            <div class="pdf-lang-dropdown">
+                <i class="fa-solid fa-globe" style="color: var(--accent-pink);"></i>
+                <select id="custom-language-select" onchange="changePageLanguage(this.value)">
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="nl">🇳🇱 Nederlands</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="google_translate_element" style="display:none!important;"></div>
+
+    <div class="pdf-document-container">
+"""
+
+html_pages = """
+        <!-- PAGE 1: COVER PAGE -->
+        <div class="pdf-page cover-page" id="couverture">
+            <div class="cover-top-header">GUIDE PREMIUM DE COUPLE POUR L'HOMME MODERNE</div>
+            <div>
+                <h1 class="cover-main-title">SAUVER<br>TON COUPLE</h1>
+                <div class="cover-subtitle">SANS PERDRE TA DIGNITÉ</div>
+                <div class="cover-stars">★ ★ ★</div>
+                <p class="cover-tagline">Le guide honnête que tu aurais voulu avoir avant la première dispute.</p>
+                <div style="color: #f43f5e; font-size: 1.2rem; margin-bottom: 10px;">♥ ♥ ♥</div>
+                <div class="cover-author-wrapper">
+                    <div class="cover-author-name">Lina Rela</div>
+                    <div class="cover-author-role">Coach Relationnelle | Auteure</div>
+                </div>
+                <div class="cover-badges-grid">
+                    <a href="#toc" class="cover-badge-item" style="text-decoration:none;">10 Chapitres</a>
+                    <a href="#chapitre-9" class="cover-badge-item" style="text-decoration:none;">Exercices Pratiques</a>
+                    <a href="#chapitre-9" class="cover-badge-item" style="text-decoration:none;">Plan 30 jours</a>
+                    <a href="#annexe" class="cover-badge-item" style="text-decoration:none;">50 Pages</a>
+                </div>
+            </div>
+            <div class="cover-bottom-bar">
+                De la souffrance silencieuse à un foyer apaisé - Une voix de femme, pour l'homme qui lutte
+            </div>
+        </div>
+
+        <!-- PAGE 2: AVANT-PROPOS -->
+        <div class="pdf-page" id="avant-propos">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <h1 class="page-h1">Avant-Propos</h1>
+                    <div class="page-sub">Ce que ce livre va changer dans ta vie</div>
+                    <p class="para">Ce livre est né d'une conviction simple : les hommes qui souffrent dans leur foyer manquent rarement d'amour. Ils manquent d'outils. Ils manquent de mots. Ils manquent d'une voix qui leur parle avec honnêteté et bienveillance en même temps.</p>
+                    <p class="para">Depuis des années, j'observe des hommes extraordinaires - des pères dévoués, des travailleurs acharnés, des hommes au cœur généreux - se perdre dans des foyers qui ressemblent de plus en plus à des champs de mines émotionnels. Ils marchent sur des œufs. Ils retiennent leur souffle. Ils espèrent que demain sera différent sans changer quoi que ce soit aujourd'hui.</p>
+                    <p class="para">Ce guide n'est pas une promesse de miracle. Un couple qui souffre ne se répare pas en lisant 50 pages. Mais un homme qui comprend ce qui se passe, qui prend sa part de responsabilité avec lucidité, et qui agit avec cohérence peut transformer l'atmosphère de son foyer de façon significative et durable.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Ce n'est pas en regardant la tempête qu'on apprend à naviguer. C'est en comprenant le vent, en apprenant à tenir le gouvernail, et en ayant le courage de rester le capitaine."</p>
+                    </div>
+                    <p class="para">Ce que je te demande, c'est de lire ce livre avec ouverture. Certaines pages vont te mettre mal à l'aise. D'autres vont te soulager - parce que tu vas enfin trouver des mots pour ce que tu ressens depuis des mois. Certains chapitres vont te demander de faire des choses difficiles. Je te promets qu'elles en valent la peine.</p>
+                    <p class="para">Je t'ai écrit chaque mot de ce guide en pensant à toi. À cet homme qui rentre du travail et ne sait plus comment entrer dans sa propre maison. À celui qui regarde sa femme endormie et se demande où est passée la femme qu'il a choisie. À celui qui donne tout ce qu'il a et qui a l'impression que ce n'est jamais assez.</p>
+                    <p class="para"><em>Ce guide est pour toi. Chaque mot.</em></p>
+                    <div style="text-align: right; margin-top: 25px; font-weight: 800; font-size: 1.4rem; color: var(--accent-magenta); font-style: italic;">Lina Rela</div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 1 --</div>
+        </div>
+
+        <!-- PAGE 3: TABLE DES MATIÈRES -->
+        <div class="pdf-page" id="toc">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <h1 class="page-h1">Table des Matières</h1>
+                    <div style="width: 100%; height: 3px; background: #be123c; margin-bottom: 20px;"></div>
+                    <div class="toc-list">
+                        <a href="#introduction" class="toc-item"><div class="toc-title">Introduction</div><div class="toc-desc">Mon frère, assieds-toi, on doit se parler</div></a>
+                        <a href="#chapitre-1" class="toc-item"><div class="toc-title">Chapitre 1</div><div class="toc-desc">Le Diagnostic de l'Ombre - Pourquoi tu as l'impression de n'être qu'un portefeuille</div></a>
+                        <a href="#chapitre-2" class="toc-item"><div class="toc-title">Chapitre 2</div><div class="toc-desc">Le Miroir de l'Homme - Avant de la changer, regarde-toi</div></a>
+                        <a href="#chapitre-3" class="toc-item"><div class="toc-title">Chapitre 3</div><div class="toc-desc">L'Art de se Faire Respecter - Se faire respecter sans crier ni bouder</div></a>
+                        <a href="#chapitre-4" class="toc-item"><div class="toc-title">Chapitre 4</div><div class="toc-desc">Le Lit Froid - Briser la grève de l'intimité</div></a>
+                        <a href="#chapitre-5" class="toc-item"><div class="toc-title">Chapitre 5</div><div class="toc-desc">La Communication Haute Tension - Parler sans que ça finisse en dispute</div></a>
+                        <a href="#chapitre-6" class="toc-item"><div class="toc-title">Chapitre 6</div><div class="toc-desc">Gérer la Tribu - Famille, belle-famille et frontières saines</div></a>
+                        <a href="#chapitre-7" class="toc-item"><div class="toc-title">Chapitre 7</div><div class="toc-desc">Éduquer à Deux - Retrouver son autorité paternelle</div></a>
+                        <a href="#chapitre-8" class="toc-item"><div class="toc-title">Chapitre 8</div><div class="toc-desc">Transformer la Frustration en Force - Gérer sa colère et sa solitude émotionnelle</div></a>
+                        <a href="#chapitre-9" class="toc-item"><div class="toc-title">Chapitre 9</div><div class="toc-desc">Le Plan d'Action sur 30 Jours - Exercices quotidiens pour changer l'atmosphère</div></a>
+                        <a href="#chapitre-10" class="toc-item"><div class="toc-title">Chapitre 10</div><div class="toc-desc">Quand est-il Temps de Partir ? - La sagesse de savoir si le combat en vaut la peine</div></a>
+                        <a href="#conclusion" class="toc-item"><div class="toc-title">Conclusion</div><div class="toc-desc">Je suis fière de toi, mon frère - Le mot final de Lina Rela</div></a>
+                        <a href="#annexe" class="toc-item"><div class="toc-title">Annexe</div><div class="toc-desc">Les Outils Essentiels en Un Coup d'Oeil</div></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 2 --</div>
+        </div>
+
+        <!-- PAGE 4: DÉDICACE -->
+        <div class="pdf-page" id="dedicace">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body" style="display: flex; flex-direction: column; justify-content: center; height: 100%; min-height: 600px; text-align: center;">
+                    <p style="font-size: 1.5rem; font-style: italic; color: #701a40; line-height: 2; margin-bottom: 40px; font-family: var(--font-heading);">
+                        À tous les hommes qui souffrent en silence dans leur foyer,<br>
+                        à ceux qui ont cessé d'y croire,<br>
+                        et à ceux qui cherchent encore.
+                    </p>
+                    <div style="width: 150px; height: 2px; background: var(--accent-gold); margin: 0 auto 40px;"></div>
+                    <div class="pdf-quote-box" style="max-width: 600px; margin: 0 auto;">
+                        <p class="pdf-quote-text">"L'arbre le plus solide est celui qui a survécu à la tempête."</p>
+                        <div style="margin-top: 10px; font-size: 0.95rem; color: #854d0e; font-style: normal; font-weight: 600;">- Proverbe africain</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 3 --</div>
+        </div>
+
+        <!-- PAGES 5-7: INTRODUCTION -->
+        <div class="pdf-page" id="introduction">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <h1 class="page-h1">Introduction</h1>
+                    <div class="page-sub">Mon frère, assieds-toi. On doit se parler.</div>
+                    <p class="para">Je m'appelle <strong>Lina Rela</strong>. Et si tu lis ces lignes aujourd'hui, c'est probablement parce que tu portes quelque chose de très lourd en ce moment. Quelque chose que tu n'as dit à personne. Pas à tes amis, parce qu'ils rigolent de tout. Pas à ta famille, parce qu'ils vont faire des ragots. Pas à elle, parce que ça finit toujours en dispute. Alors tu portes ça seul. Et ça pèse.</p>
+                    <p class="para">Peut-être que tu rentres du travail le soir et que la maison est froide - pas de température, mais d'ambiance. Peut-être qu'elle ne te regarde plus vraiment quand tu parles. Peut-être que le dernier vrai moment d'intimité entre vous, c'était il y a si longtemps que tu essaies de ne plus compter. Peut-être qu'elle te compare à son collègue, à son frère, à 'n'importe qui d'autre que toi'. Et toi, tu ravales ta salive. Tu sors marcher. Ou tu te noies dans ton téléphone. Ou tu gardes tout pour toi.</p>
+                    <p class="para">Mon frère, je t'ai vu. Je te vois. Et je veux que tu saches que la douleur que tu ressens est réelle, légitime, et que tu n'es pas fou de souffrir.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Un homme qui souffre en silence dans son foyer n'est pas un homme faible. C'est un homme qui n'a pas encore eu les bons outils. Ce guide est ces outils."</p>
+                    </div>
+                    <h2 class="page-h2">Qui suis-je pour te parler de tout ça ?</h2>
+                    <p class="para">Je ne suis pas une psychologue en blouse blanche. Je suis une femme qui a grandi en observant les hommes autour d'elle - son père, ses frères, ses amis - se débattre en silence dans leurs foyers. Une femme qui a écouté des centaines d'histoires de couples au bord du gouffre. Une femme qui connaît le cœur féminin de l'intérieur - avec ses contradictions, ses peurs, ses besoins non dits - et qui a choisi de mettre cette connaissance au service des hommes qui veulent vraiment comprendre, pas juste gagner une dispute.</p>
+                    <p class="para">Pense à moi comme à ta grande sœur. Celle qui n'a pas peur de te dire la vérité, même quand elle pique. Celle qui va te secouer les épaules quand tu fais n'importe quoi. Mais aussi celle qui sera là pour souffler sur la brûlure après.</p>
+                    <h2 class="page-h2">Ce que ce guide n'est PAS</h2>
+                    <ul class="checklist checklist-cross">
+                        <li>Ce n'est pas un manuel pour 'dresser' ta femme ou la contrôler.</li>
+                        <li>Ce n'est pas une liste de techniques de manipulation empruntées à des forums douteux.</li>
+                        <li>Ce n'est pas un sermon religieux sur la patience et l'obéissance.</li>
+                        <li>Ce n'est pas non plus une attaque contre les femmes - je suis une femme, rappelle-toi.</li>
+                    </ul>
+                    <h2 class="page-h2">Ce que ce guide EST</h2>
+                    <ul class="checklist">
+                        <li>Une analyse honnête de ce qui se passe vraiment dans ton foyer.</li>
+                        <li>Un miroir que tu as besoin de regarder, même si c'est inconfortable.</li>
+                        <li>Des outils concrets pour transformer l'atmosphère de ta maison.</li>
+                        <li>Un espace où tu as le droit de souffrir, de douter, et de vouloir mieux.</li>
+                        <li>Une voix féminine qui dit la vérité sur ce que les femmes veulent sans toujours savoir le demander.</li>
+                    </ul>
+                    <div class="pdf-sister-box">
+                        <div class="pdf-sister-header">Conseil de grande sœur</div>
+                        <p style="font-size: 0.95rem; color: #4c0519;">Avant de continuer, je te demande une chose : lis ce guide avec un carnet à côté. Pas pour noter des formules magiques. Pour noter CE QUE TU RESSENS en lisant. Tes émotions sont de l'information précieuse. Ne les laisse pas s'échapper.</p>
+                    </div>
+                    <p class="para">Dix chapitres. Dix miroirs. Un seul objectif : que tu sortes de ce guide avec les épaules moins lourdes, une direction claire, et la certitude que tu peux être l'homme que ta famille mérite - et que TOI tu mérites d'être.</p>
+                    <p class="para"><em>Alors assieds-toi, mon frère. Prends un verre d'eau. Et tournons la page ensemble.</em> - <strong>Lina Rela</strong></p>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 4 / 6 --</div>
+        </div>
+
+        <!-- PAGES 8-11: CHAPITRE 1 -->
+        <div class="pdf-page" id="chapitre-1">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 1</div>
+                    <h1 class="page-h1">Le Diagnostic de l'Ombre</h1>
+                    <div class="page-sub">Pourquoi tu as l'impression de n'être qu'un portefeuille - et ce que ça cache vraiment</div>
+                    <p class="para">Tu paies le loyer. Tu remplis le frigo. Tu répares ce qui est cassé. Tu meures d'envie de rendre ta famille heureuse. Et pourtant, à la fin de la journée, tu as cette sensation étrange - comme si ta femme te regardait comme on regarde un distributeur automatique. Elle appuie sur les boutons quand elle a besoin de quelque شيء, et le reste du temps, tu es juste... là.</p>
+                    <p class="para">Si tu te reconnais dans ces mots, sache que tu n'es ni paranoïaque ni victime. Tu traverses ce que j'appelle le <strong>Syndrome du Pourvoyeur Invisible</strong>. Et c me plus commun que tu ne le crois.</p>
+                    <h2 class="page-h2">Comprendre ce qui s'est passé</h2>
+                    <p class="para">Au début de votre relation, tu étais un homme avec une mission, une énergie, une présence. Elle t'a choisi pour ça. Mais progressivement - par les responsabilités, la routine, les enfants, le travail - tu t'es transformé en 'fonctionnaire du foyer'. Tu fais tourner la machine. Mais tu n'animes plus rien.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Un couple ne meurt pas d'un grand choc. Il meurt de mille petits abandons. Mille petites fois où l'on a choisi le confort du silence à la difficulté de la connexion."</p>
+                    </div>
+                    <h2 class="page-h2">Les signes que la connexion émotionnelle est rompue</h2>
+                    <ul class="checklist">
+                        <li><strong>Elle ne te raconte plus rien de personnel.</strong> Ses joies, ses angoisses, ses projets - tu les apprends par quelqu'un d'autre.</li>
+                        <li><strong>Les conversations sont purement logistiques.</strong> 'T'as payé l'électricité ?', 'Le petit a rendez-vous chez le médecin jeudi.'</li>
+                        <li><strong>Elle ne rit plus avec toi.</strong> Elle peut encore rire - avec ses amies, en regardant son téléphone - mais plus avec toi.</li>
+                        <li><strong>Les témoignages d'affection ont disparu.</strong> Plus de main tendue, plus de regard prolongé, plus de 'merci' sincère.</li>
+                        <li><strong>Elle te compare.</strong> À d'autres hommes, à d'autres couples, à ce qu'il 'aurait fallu faire' selon elle.</li>
+                        <li><strong>Tu te sens jugé en permanence.</strong> Chaque décision que tu prends est scrutée, critiquée, minimisée.</li>
+                    </ul>
+                    <h2 class="page-h2">L'erreur de diagnostic la plus fréquente</h2>
+                    <p class="para">La plupart des hommes dans cette situation font la même erreur : ils pensent que le problème, c'est <em>elle</em>. 'Elle a changé.' 'Elle n'est plus reconnaissante.' 'Elle est devenue matérialiste.' Peut-être. Mais voici ce que personne ne te dit : quand une femme se déconnecte émotionnellement de son homme, c'est presque toujours parce qu'elle a déjà envoyé des signaux - et qu'ils ont été ignorés.</p>
+                    <div class="pdf-metaphor-box">
+                        <div class="pdf-metaphor-header"><i class="fa-solid fa-tree"></i> La métaphore de l'arbre et du sol</div>
+                        <div class="pdf-metaphor-body">Imagine ta relation comme un arbre. Les feuilles qui tombent, la froideur, le manque de respect - ce sont les symptômes visibles. Mais le vrai problème, c'est dans le sol - dans les racines de votre connexion. Si tu essaies de coller les feuilles avec du scotch (faire des cadeaux, meubler, supplier), tu travailles sur les symptômes. Ce guide travaille sur le sol.</div>
+                    </div>
+                    <h2 class="page-h2">Anatomie d'un processus lent</h2>
+                    <p class="para"><strong>Phase 1 - L'éloignement silencieux:</strong> Elle essaie de communiquer un besoin. Tu n'entends pas. Puis elle se fatigue.<br>
+                    <strong>Phase 2 - Le ressentiment:</strong> Elle accumule. Chaque petite friction devient une pierre dans le mur qu'elle construit.<br>
+                    <strong>Phase 3 - La distance protectrice:</strong> Elle se protège en s'investissant ailleurs (amies, réseaux, travail).<br>
+                    <strong>Phase 4 - La cohabitation froide:</strong> Vous vivez comme deux colocataires polis. Le foyer est en état de survie.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"La colère dans un couple, c'est du feu. Le froid total, c'est la cendre. Tant qu'il y a du feu, il y a quelque chose à travailler."</p>
+                    </div>
+                    <h2 class="page-h2">Faire le diagnostic de ta relation - l'exercice de la température</h2>
+                    <p class="para">Prends note sur 10 des éléments suivants : Communication, Intimité physique, Respect mutuel, Projets communs, Rire et légèreté, Confiance, Indépendance saine.</p>
+                    <div class="pdf-sister-box">
+                        <div class="pdf-sister-header">Conseil de grande sœur</div>
+                        <p style="font-size: 0.95rem; color: #4c0519;">Liste trois choses que tu as abandonnées pour cette relation - des passions, des amis, des projets. Un homme équilibré est un meilleur partenaire qu'un homme qui se sacrifie.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 7 / 10 --</div>
+        </div>
+
+        <!-- PAGES 12-15: CHAPITRE 2 -->
+        <div class="pdf-page" id="chapitre-2">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 2</div>
+                    <h1 class="page-h1">Le Miroir de l'Homme</h1>
+                    <div class="page-sub">Avant de la changer elle, regarde-toi. Retrouver sa confiance et son leadership personnel</div>
+                    <p class="para">Je sais que ce n'est pas ce que tu voulais entendre. Tu voulais qu'on te parle d'elle - de ses défauts, de ses excès, de ce qu'elle doit changer. Mais je vais faire quelque chose de plus difficile et de plus utile : je vais te demander de te regarder dans un miroir. Un vrai miroir.</p>
+                    <h2 class="page-h2">L'homme que tu étais vs l'homme que tu es devenu</h2>
+                    <p class="para">Rappelle-toi de l'homme que tu étais quand elle t'a choisi. Tu avais une direction, des projets, une énergie. Tu prenais soin de toi. Tu avais des opinions que tu exprimais. Tu avais des limites que tu tenais. Tu la surprenais. Tu l'écoutais vraiment. Et puis... la routine. Le confort. La vie.</p>
+                    <div class="pdf-metaphor-box">
+                        <div class="pdf-metaphor-header"><i class="fa-solid fa-seedling"></i> La métaphore du jardin</div>
+                        <div class="pdf-metaphor-body">Tu ne laisserais pas ton jardin sans eau et sans soin en te disant 'il a poussé une fois, il poussera toujours'. Un couple, c'est pareil. Ça ne survit pas au manque d'attention - ça se fane, doucement, silencieusement, jusqu'au jour où tu ne reconnais plus ce que c'était.</div>
+                    </div>
+                    <h2 class="page-h2">Les 7 signes que tu as perdu ton leadership personnel</h2>
+                    <ol style="margin-left: 20px; font-size: 0.96rem; line-height: 1.8;">
+                        <li>Tu n'as plus de projets personnels. Ta seule identité, c'est 'le mari de...' ou 'le papa de...'.</li>
+                        <li>Tu ne te fais plus respecter sur des points fondamentaux. Tu ravales. Tu évites. Tu contournes.</li>
+                        <li>Tu as abandonné des passions ou des amitiés importantes pour 'faire plaisir' ou 'éviter les conflits'.</li>
+                        <li>Tu cherches son approbation avant de prendre la moindre décision qui te concerne.</li>
+                        <li>Tu ne prends plus soin de ton corps, de ton image, de ta santé avec la même rigueur qu me'avant.</li>
+                        <li>Tu n'exprimes plus tes émotions - ni ta joie, ni ta colère, ni tes besoins.</li>
+                        <li>Tu te sens défini par ses humeurs. Si elle est bien, tu es bien. Si elle est froide, tu te sens nul.</li>
+                    </ol>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Tu ne peux pas donner à ton couple ce que tu n'as pas d'abord. Un homme vide donne du vide. Un homme plein donne de l'abondance. Remplis-toi d'abord."</p>
+                    </div>
+                    <h2 class="page-h2">Reconquérir ta confiance : les fondations</h2>
+                    <p class="para"><strong>1. Ton corps :</strong> 30 min de sport par jour change la chimie du cerveau et redonne de l'énergie.<br>
+                    <strong>2. Ton esprit :</strong> Continue d'apprendre, de lire, d'évoluer.<br>
+                    <strong>3. Tes projets :</strong> Reprends un projet personnel qui n'appartient qu'à toi.<br>
+                    <strong>4. Tes amis :</strong> Maintiens un cercle masculin solide qui te soutient et te challenge.</p>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 11 / 14 --</div>
+        </div>
+
+        <!-- PAGES 16-19: CHAPITRE 3 -->
+        <div class="pdf-page" id="chapitre-3">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 3</div>
+                    <h1 class="page-h1">L'Art de se Faire Respecter</h1>
+                    <div class="page-sub">Se faire respecter sans crier, sans bouder, et sans perdre ta dignité</div>
+                    <p class="para">Elle t'a dit devant des invités : 'Untel fait ceci, pourquoi toi tu n'es pas capable ?'. Ou alors elle t'a coupé la parole trois fois. Ou elle a pris une décision importante sans te consulter. Et toi ? Tu as souri jaune. Ou tu es sorti claquer la porte. Aucune de ces options ne marche.</p>
+                    <h2 class="page-h2">Les trois réactions inefficaces face au mépris</h2>
+                    <p class="para"><strong>1. La capitulation silencieuse :</strong> Tu ne dis rien, tu ravales. À long terme, ça te détruit.<br>
+                    <strong>2. L'explosion volcanique :</strong> Tu cries, tu claques la porte. Ça valide l'idée que tu es instable.<br>
+                    <strong>3. La vengeance passive :</strong> Tu deviens froid et tu boudes. C'est l'enfant blessé qui se venge.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Ce que tu viens de dire m'a fait mal. Je ne suis pas d'accord pour être parlé comme ça. On peut en discuter si tu veux, mais pas sur ce ton."</p>
+                    </div>
+                    <h2 class="page-h2">La quatrième voie : la frontière calme</h2>
+                    <p class="para">Une frontière calme s'exprime sans hausser la voix, en maintenant son regard. Et puis tu te tais. Tu n'attends pas d'excuse immédiate. Tu maintiens la frontière à chaque fois.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Un lion n'a pas besoin de rappeler aux autres animaux qu'il est un lion. Sa présence suffit. Sois ce lion-là dans ton foyer."</p>
+                    </div>
+                    <div class="pdf-sister-box">
+                        <div class="pdf-sister-header">Conseil de grande sœur</div>
+                        <p style="font-size: 0.95rem; color: #4c0519;">La prochaine fois qu'elle dit quelque chose qui te blesse, compte jusqu'à cinq dans ta tête. Respire. Puis dis exactement ce que tu ressens, sans accusations : 'ce que tu viens de dire m'a fait mal'.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 15 / 18 --</div>
+        </div>
+
+        <!-- PAGES 20-23: CHAPITRE 4 -->
+        <div class="pdf-page" id="chapitre-4">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 4</div>
+                    <h1 class="page-h1">Le Lit Froid</h1>
+                    <div class="page-sub">Briser la grève de l'intimité - comprendre le désir féminin et reconnecter sans mendier</div>
+                    <p class="para">Il y a une conversation que presque personne n'ose avoir. Celle du couple qui ne se touche plus. Celui où tu te couches le soir à côté d'elle et où le silence entre vos deux corps est plus lourd que n'importe quelle dispute. Tu ne sais plus comment approcher. Tu as peur d'être rejeté encore une fois.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Pour une femme, le désir commence souvent en dehors de la chambre - dans la cuisine, dans une conversation, dans un regard. Le lit est la conclusion, pas le point de départ."</p>
+                    </div>
+                    <h2 class="page-h2">Ce qui ne marche PAS pour reconnecter</h2>
+                    <ul class="checklist checklist-cross">
+                        <li>Mendier physiquement - ça la met mal à l'aise et ça te fait perdre ta valeur.</li>
+                        <li>Bouder après un refus - ça la culpabilise mais ne crée pas de désir.</li>
+                        <li>Compter les jours et lui annoncer - ça transforme le désir en obligation.</li>
+                        <li>Essayer d'approcher sans aucune reconnexion émotionnelle préalable.</li>
+                    </ul>
+                    <h2 class="page-h2">Comment reconnecter vraiment</h2>
+                    <p class="para"><strong>Étape 1 :</strong> Le retour des petits gestes désintéressés.<br>
+                    <strong>Étape 2 :</strong> La redécouverte de sa féminité (regard et compliments sincères).<br>
+                    <strong>Étape 3 :</strong> Créer des moments juste pour deux sans téléphone ni enfants.<br>
+                    <strong>Étape 4 :</strong> La conversation ouverte et sereine sur l'intimité.</p>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 19 / 22 --</div>
+        </div>
+
+        <!-- PAGES 24-27: CHAPITRE 5 -->
+        <div class="pdf-page" id="chapitre-5">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 5</div>
+                    <h1 class="page-h1">La Communication Haute Tension</h1>
+                    <div class="page-sub">Parler de tes besoins sans que ça finisse en dispute - l'écoute active et l'affirmation de soi</div>
+                    <p class="para">Tu veux dire quelque chose d'important. Tu choisis le moment, tu prends ton courage à deux mains, tu commences à parler. Et dix minutes plus tard, vous vous criez dessus et le sujet de départ est oublié depuis longtemps.</p>
+                    <h2 class="page-h2">Pourquoi les discussions deviennent des disputes</h2>
+                    <p class="para"><strong>Le Cyclone des 4 étapes :</strong> Déclencheur banal ➔ Interprétation rapide à travers le filtre des blessures ➔ Attaque ou repli defensif ➔ Escalade générale.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"On ne résout pas un problème en criant plus fort. On le résout en écoutant plus profondément."</p>
+                    </div>
+                    <h2 class="page-h2">Les 5 règles de la communication qui atterrit</h2>
+                    <ol style="margin-left: 20px; font-size: 0.96rem; line-height: 1.8;">
+                        <li><strong>Choisir le moment et le lieu :</strong> Jamais quand l'un de vous est épuisé ou affamé.</li>
+                        <li><strong>Parler en 'Je', pas en 'Tu' :</strong> 'Je me sens seul' au lieu de 'Tu ne m'écoutes jamais'.</li>
+                        <li><strong>Demander avant d'expliquer :</strong> L'écouter vraiment avant d'exposer ton point de vue.</li>
+                        <li><strong>Mettre des mots sur tes émotions :</strong> Exprimer sa vulnérabilité est une force.</li>
+                        <li><strong>Définir le but :</strong> 'Je veux juste qu'on se comprenne, pas que l'un gagne sur l'autre.'</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 23 / 26 --</div>
+        </div>
+
+        <!-- PAGES 28-31: CHAPITRE 6 -->
+        <div class="pdf-page" id="chapitre-6">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 6</div>
+                    <h1 class="page-h1">Gérer la Tribu</h1>
+                    <div class="page-sub">Famille, belle-famille et influences extérieures - mettre des frontières saines sans faire la guerre</div>
+                    <p class="para">La belle-mère qui appelle trois fois par jour. La sœur qui a toujours son mot à dire. L'ami qui vient s'installer chez vous sans invitation. Ta propre mère qui pense qu'elle a un droit de regard sur votre vie conjugale.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Construis un mur autour de ton foyer - pas pour empêcher l'amour d'entrer, mais pour empêcher le chaos de s'y installer."</p>
+                    </div>
+                    <h2 class="page-h2">Le foyer comme espace sacré</h2>
+                    <p class="para">Quand deux personnes forment un couple, elles créent une entité nouvelle. Cet espace-là - votre maison, votre intimité, vos décisions - est sacré. Protéger cet espace, c'est un acte d'amour envers ton couple.</p>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 27 / 30 --</div>
+        </div>
+
+        <!-- PAGES 32-34: CHAPITRE 7 -->
+        <div class="pdf-page" id="chapitre-7">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 7</div>
+                    <h1 class="page-h1">Éduquer à Deux</h1>
+                    <div class="page-sub">Retrouver son autorité paternelle - faire équipe sur l'éducation sans être contredit</div>
+                    <p class="para">Tu dis non à ton enfant. Elle dit oui. Tu poses une règle. Elle la contourne. Tu essaies de discipliner. Elle te regarde comme si tu étais le méchant de service.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Vos enfants n'ont pas besoin de parents parfaits. Ils ont besoin de parents unis. L'unité est plus puissante que la perfection."</p>
+                    </div>
+                    <h2 class="page-h2">La règle des coulisses</h2>
+                    <p class="para">Les désaccords éducatifs se gèrent en coulisses, jamais devant les enfants. Devant l'enfant, vous êtes un bloc uni.</p>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 31 / 33 --</div>
+        </div>
+
+        <!-- PAGES 35-38: CHAPITRE 8 -->
+        <div class="pdf-page" id="chapitre-8">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 8</div>
+                    <h1 class="page-h1">Transformer la Frustration en Force</h1>
+                    <div class="page-sub">Gérer sa colère et sa solitude émotionnelle - trouver ses propres soutiens</div>
+                    <p class="para">Tu rentres du travail après une journée difficile. Tu n'as rien dit de tout ça parce que 'les hommes ne se plaignent pas'. Tu absorbes les tensions. Et tu exploses sur une assiette mal lavée parce que le vase déborde.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"La force d'un homme ne se mesure pas au fait qu'il ne pleure pas. Elle se mesure à sa capacité à traverser la douleur sans se perdre. Traverser - pas éviter."</p>
+                    </div>
+                    <h2 class="page-h2">L'iceberg de la colère</h2>
+                    <p class="para">La colère est la partie visible de l'iceberg. En dessous se cachent la blessure, la peur, la honte ou la frustration d'un besoin non exprimé.</p>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 34 / 37 --</div>
+        </div>
+
+        <!-- PAGES 39-44: CHAPITRE 9 -->
+        <div class="pdf-page" id="chapitre-9">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 9</div>
+                    <h1 class="page-h1">Le Plan d'Action sur 30 Jours</h1>
+                    <div class="page-sub">Des exercices quotidiens pour transformer l'atmosphère de ta maison, un jour à la fois</div>
+                    <p class="para">La connaissance sans action ne change rien. Trente jours. Un effort quotidien. Des changements concrets dans ton foyer.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Trente jours de petits gestes valent plus qu'une grande déclaration d'amour non suivie d'actes."</p>
+                    </div>
+                    <h2 class="page-h2">Aperçu du Programme sur 30 Jours</h2>
+                    <p class="para"><strong>Semaine 1 (J1-7) :</strong> Observation et Fondations (Inventaire, détox numérique, geste désintéressé, sport, écoute active).<br>
+                    <strong>Semaine 2 (J8-14) :</strong> Communication et Reconnexion (Besoins en 'Je', compliments, rituel du soir, frontière posée, sortie à deux).<br>
+                    <strong>Semaine 3 (J15-21) :</strong> Leadership et Structure (Projet perso, reconnexion amis, intimité sans attente, bilan mi-parcours).<br>
+                    <strong>Semaine 4 (J22-30) :</strong> Consolidation et Vision (Constance, lettre d'intention, vision à 2 ans, grand bilan).</p>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 38 / 43 --</div>
+        </div>
+
+        <!-- PAGES 45-48: CHAPITRE 10 -->
+        <div class="pdf-page" id="chapitre-10">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <div class="chapter-badge">Chapitre 10</div>
+                    <h1 class="page-h1">Quand est-il Temps de Partir ?</h1>
+                    <div class="page-sub">La sagesse de savoir si le combat en vaut encore la peine - et comment le décider avec dignité</div>
+                    <p class="para">C'est le chapitre que j'ai hésité à écrire. Parce que je suis là pour t'aider à sauver ton couple. Mais parfois, la chose la plus courageuse n'est pas de rester. C'est de partir avec dignité, sans haine, et avec lucidité.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Parfois, aimer quelqu'un profondément, c'est aussi reconnaître avec sagesse que le meilleur pour vous deux est un nouveau chemin. Le courage n'est pas toujours dans le fait de rester."</p>
+                    </div>
+                    <h2 class="page-h2">Les signaux d'alerte sérieux</h2>
+                    <ul class="checklist checklist-cross">
+                        <li>La violence physique ou verbale.</li>
+                        <li>L'indifférence totale et le vide émotionnel.</li>
+                        <li>Le refus persistant et catégorique de tout effort commun.</li>
+                        <li>La trahison répétée et sans remise en question.</li>
+                        <li>La mise en danger du bien-être de tes enfants.</li>
+                    </ul>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Certains couples ont besoin de toucher le fond pour trouver la force de remonter ensemble. D'autres ont besoin de se séparer pour grandir séparément. Les deux chemins peuvent mener vers la lumière."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 45 / 47 --</div>
+        </div>
+
+        <!-- PAGES 49-51: CONCLUSION -->
+        <div class="pdf-page" id="conclusion">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <h1 class="page-h1">Conclusion</h1>
+                    <div class="page-sub">Je suis fière de toi, mon frère.</div>
+                    <p class="para">Tu es arrivé jusqu'ici. Et ça, ça compte énormément. Tu as ouvert un guide qui te demandait de te regarder dans un miroir. Tu n'as pas fermé le livre quand ça piquait. Tu n'as pas sauté les chapitres difficiles. Tu as accepté que la vérité - même inconfortable - est plus utile que le confort du mensonge. Ça, ce n'est pas rien.</p>
+                    <p class="para">Tu as appris à nommer ce qui ne va pas sans te noyer dedans. Tu as compris que ta femme n'est pas ton ennemie - elle est quelqu'un qui souffre aussi, à sa façon. Tu as découvert que le respect se construit par la cohérence quotidienne.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"Ce n'est pas l'homme parfait qui sauve son couple. C'est l'homme qui a décidé de ne plus ignorer ce qui ne va pas et de se battre avec courage, amour et lucidité."</p>
+                    </div>
+                    <p class="para">Ce que je veux que tu emportes de ce guide, ce n'est pas une technique. C'est une conviction : <strong>tu as le pouvoir de changer l'atmosphère de ton foyer</strong>. Pas en changeant ta femme - en te changeant toi. En devenant l'homme que tu es capable d'être.</p>
+                    <div class="pdf-quote-box">
+                        <p class="pdf-quote-text">"La version de toi qui a commencé ce guide et la version de toi qui le termine ne sont pas la même personne. Bienvenue dans ta nouvelle peau."</p>
+                    </div>
+                    <p class="para">Si les choses ne s'améliorent pas, sache que le travail que tu auras fait ne sera pas perdu. Il t'aura rendu meilleur, plus fort, plus sage. Mon frère, je suis fière de toi.</p>
+                    <p class="para" style="font-style: italic; font-weight: 700; margin-top: 20px;">Maintenant va. Et sois cet homme.</p>
+                    <div style="text-align: right; font-weight: 800; font-size: 1.3rem; color: var(--accent-magenta); margin-top: 20px; font-style: italic;">
+                        Avec tout mon amour de grande sœur,<br>
+                        Lina Rela
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 48 / 50 --</div>
+        </div>
+
+        <!-- PAGES 52-54: ANNEXE -->
+        <div class="pdf-page" id="annexe">
+            <div>
+                <div class="pdf-header">Lina Rela | Sauver Ton Couple Sans Perdre Ta Dignité</div>
+                <div class="pdf-body">
+                    <h1 class="page-h1">Annexe - Les Outils Essentiels</h1>
+                    <div class="page-sub">Ton guide de référence rapide</div>
+                    <h2 class="page-h2">Les Formules de Communication Essentielles</h2>
+                    <div class="pdf-sister-box">
+                        <div class="pdf-sister-header">Face au manque de respect :</div>
+                        <p class="para"><em>'Ce que tu viens de dire m'a fait mal. Je ne suis pas d'accord pour être parlé comme ça. On peut en discuter si tu veux, mais pas sur ce ton.'</em></p>
+                    </div>
+                    <div class="pdf-sister-box">
+                        <div class="pdf-sister-header">Face à la comparaison :</div>
+                        <p class="para"><em>'Je comprends que tu aies des attentes. Je suis prêt à en discuter. Mais je ne veux pas être comparé à quelqu'un d'autre. Dis-moi directement ce dont tu as besoin.'</em></p>
+                    </div>
+                    <div class="pdf-sister-box">
+                        <div class="pdf-sister-header">Pour initier une conversation importante :</div>
+                        <p class="para"><em>'J'aimerais qu'on parle de quelque chose qui me tient à cœur, pas pour se disputer, juste pour qu'on se comprenne mieux. Tu aurais un moment ce soir ?'</em></p>
+                    </div>
+                    <div class="pdf-sister-box">
+                        <div class="pdf-sister-header">Pour exprimer un besoin en 'Je' :</div>
+                        <p class="para"><em>'Je me sens [émotion] quand [situation]. J'aurais besoin de [besoin précis].'</em></p>
+                    </div>
+                    <h2 class="page-h2">Les 10 Règles d'Or de Lina Rela</h2>
+                    <ol style="margin-left: 20px; font-size: 0.95rem; line-height: 1.8;">
+                        <li>Un homme qui se respecte inspire le respect. Un homme qui s'efface l'invite à disparaître.</li>
+                        <li>La colère est de l'information. Avant d'exploser, demande-toi ce qu me'elle essaie de te dire.</li>
+                        <li>L'écoute active est ton arme la plus puissante dans une dispute.</li>
+                        <li>Parle toujours en 'Je', jamais en 'Tu' accusateur.</li>
+                        <li>La cohérence vaut plus que la perfection. Fais ce que tu dis, toujours.</li>
+                        <li>Ton foyer est sacré. Protège-le des influences extérieures.</li>
+                        <li>Un homme avec un projet est infiniment plus attractif qu'un homme sans direction.</li>
+                        <li>Le corps, l'esprit, les projets, les amis - tout ça nourrit ton couple.</li>
+                        <li>L'intimité physique revient quand l'intimité émotionnelle est restaurée.</li>
+                        <li>Sauver ton couple commence par te sauver toi-même.</li>
+                    </ol>
+                    <div style="text-align: right; margin-top: 30px; font-weight: 800; font-size: 1.2rem; color: var(--accent-magenta); font-style: italic;">
+                        Lina Rela<br>
+                        <span style="font-size: 0.9rem; font-weight: 400; color: #666;">Coach Relationnelle | Grande sœur du monde entier</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-footer">-- 51 / 53 --</div>
+        </div>
+"""
+
+html_foot = """
+    </div>
+
+    <!-- JavaScript Navigation & Google Translate Integration -->
+    <script type="text/javascript">
+        function scrollToSection(targetId) {
+            if (!targetId) return;
+            var cleanId = targetId.replace('#', '');
+            var elem = document.getElementById(cleanId);
+            if (elem) {
+                elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (history.pushState) {
+                    history.pushState(null, null, '#' + cleanId);
+                } else {
+                    location.hash = '#' + cleanId;
+                }
+                var quickSelect = document.getElementById('quick-chapter-select');
+                if (quickSelect) {
+                    quickSelect.value = cleanId;
+                }
+            }
+        }
+
+        // Attach click listeners to all internal anchor links for smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    var href = this.getAttribute('href');
+                    if (href && href.length > 1) {
+                        e.preventDefault();
+                        scrollToSection(href.substring(1));
+                    }
+                });
+            });
+
+            // Handle hash on page load (e.g. #conclusion)
+            if (window.location.hash) {
+                setTimeout(function() {
+                    scrollToSection(window.location.hash);
+                }, 300);
+            }
+        });
+
+        // Google Translate Cookie & LocalStorage Logic
+        function setTranslateCookie(langCode) {
+            var domain = window.location.hostname;
+            var cookieVal = "/fr/" + langCode;
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + ";";
+            document.cookie = "googtrans=" + cookieVal + "; path=/;";
+            if (domain && domain !== 'localhost' && domain !== '127.0.0.1') {
+                document.cookie = "googtrans=" + cookieVal + "; path=/; domain=" + domain + ";";
+                document.cookie = "googtrans=" + cookieVal + "; path=/; domain=." + domain + ";";
+            }
+        }
+
+        function resetToFrenchDefault() {
+            var domain = window.location.hostname;
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + ";";
+            document.cookie = "googtrans=/fr/fr; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            localStorage.removeItem('selected_landing_lang');
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function changePageLanguage(langCode) {
+            if (!langCode || langCode === 'fr') {
+                resetToFrenchDefault();
+                location.reload();
+                return;
+            }
+            localStorage.setItem('selected_landing_lang', langCode);
+            setTranslateCookie(langCode);
+            var googleSelect = document.querySelector('.goog-te-combo');
+            if (googleSelect) {
+                googleSelect.value = langCode;
+                googleSelect.dispatchEvent(new Event('change'));
+            }
+            var selectElem = document.getElementById('custom-language-select');
+            if (selectElem) {
+                selectElem.value = langCode;
+            }
+            setTimeout(function() {
+                location.reload();
+            }, 150);
+        }
+
+        function syncLanguageDropdownUI() {
+            var savedLang = localStorage.getItem('selected_landing_lang');
+            var match = document.cookie.match(/(?:^|;\\s*)googtrans=([^;]*)/);
+            var activeLang = savedLang || 'fr';
+            if (match && match[1]) {
+                var parts = match[1].split('/');
+                if (parts.length >= 3 && parts[2]) {
+                    activeLang = parts[2];
+                }
+            }
+            var selectElem = document.getElementById('custom-language-select');
+            if (selectElem && activeLang) {
+                selectElem.value = activeLang;
+            }
+        }
+
+        
+        function updateRTLState() {
+            var savedLang = localStorage.getItem('selected_landing_lang');
+            var match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]*)/);
+            var activeLang = savedLang || 'fr';
+            if (match && match[1]) {
+                var parts = match[1].split('/');
+                if (parts.length >= 3 && parts[2]) {
+                    activeLang = parts[2];
+                }
+            }
+            if (activeLang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', updateRTLState);
+        window.addEventListener('load', updateRTLState);
+
+        document.addEventListener('DOMContentLoaded', syncLanguageDropdownUI);
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Voice Reader & Lip-Sync Styles -->
+    <style>
+        .btn-voice-toggle {
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            color: #ffffff;
+            border: 1px solid #c084fc;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+        .btn-voice-toggle:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+            background: linear-gradient(135deg, #9333ea, #c084fc);
+        }
+
+        .voice-player-floating {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 3000;
+            background: rgba(26, 6, 54, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid #a855f7;
+            border-radius: 16px;
+            padding: 14px 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            max-width: 440px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(150%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .voice-player-floating.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .avatar-lipsync-container {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
+        }
+
+        .avatar-lipsync-container i {
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+
+        .soundwave-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 18px;
+            position: absolute;
+            bottom: -4px;
+        }
+
+        .soundwave-bar {
+            width: 3px;
+            background: #c084fc;
+            border-radius: 2px;
+            height: 6px;
+            transition: height 0.2s ease;
+        }
+
+        .voice-player-floating.speaking .soundwave-bar:nth-child(1) { animation: waveAnim 0.6s infinite alternate ease-in-out; }
+        .voice-player-floating.speaking .soundwave-bar:nth-child(2) { animation: waveAnim 0.6s 0.2s infinite alternate ease-in-out; }
+        .voice-player-floating.speaking .soundwave-bar:nth-child(3) { animation: waveAnim 0.6s 0.4s infinite alternate ease-in-out; }
+
+        @keyframes waveAnim {
+            0% { height: 4px; }
+            100% { height: 18px; }
+        }
+
+        .voice-info-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .voice-title {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 0.92rem;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .voice-status {
+            font-size: 0.78rem;
+            color: #e9d5ff;
+            font-style: italic;
+        }
+
+        .voice-controls-btns {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-voice-ctrl {
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            color: #ffffff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-voice-ctrl:hover {
+            background: #a855f7;
+            transform: scale(1.08);
+        }
+
+        .voice-speed-select {
+            background: #2e1065;
+            border: 1px solid #a855f7;
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .voice-active-highlight {
+            outline: 3px solid #a855f7 !important;
+            outline-offset: 4px;
+            border-radius: 8px;
+            background-color: rgba(192, 132, 252, 0.15) !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.4) !important;
+        }
+    
+        /* Arabic RTL Layout Support */
+        html[dir="rtl"] body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        html[dir="rtl"] .pdf-header {
+            justify-content: flex-start;
+        }
+
+        html[dir="rtl"] .pdf-title-info {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .toc-item:hover {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
+        html[dir="rtl"] .intro-box {
+            border-left: none;
+            border-right: 4px solid #7e22ce;
+        }
+
+        html[dir="rtl"] .phrase-card, html[dir="rtl"] .error-card {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .error-details {
+            padding-left: 0;
+            padding-right: 48px;
+        }
+
+        html[dir="rtl"] p.para {
+            text-align: right;
+        }
+
+        html[dir="rtl"] .cover-badges-grid {
+            direction: rtl;
+        }
+
+    </style>
+
+    <!-- Floating Lip-Sync Audio Player Widget -->
+    <div id="voice-player-floating" class="voice-player-floating">
+        <div class="avatar-lipsync-container">
+            <i class="fa-solid fa-headset"></i>
+            <div class="soundwave-bars">
+                <div class="soundwave-bar"></div>
+                <div class="soundwave-bar"></div>
+                <div class="soundwave-bar"></div>
+            </div>
+        </div>
+
+        <div class="voice-info-group">
+            <div class="voice-title">Lina Rela — Synchro Vocale</div>
+            <div class="voice-status" id="voice-status-text">Initialisation...</div>
+        </div>
+
+        <div class="voice-controls-btns">
+            <select class="voice-speed-select" onchange="VoiceReader.setSpeed(this.value)">
+                <option value="1.0">1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+            </select>
+            <button class="btn-voice-ctrl" onclick="VoiceReader.toggle()" title="Play / Pause">
+                <i id="voice-play-icon" class="fa-solid fa-play"></i>
+            </button>
+            <button class="btn-voice-ctrl" onclick="VoiceReader.stop()" title="Arrêter">
+                <i class="fa-solid fa-stop"></i>
+            </button>
+        </div>
+    </div>
+
+    
+    <!-- Robust Multi-Language Voice Reader Engine with Keep-Alive & Sentence Chunking -->
+    <script type="text/javascript">
+        var VoiceReader = {
+            queue: [],
+            currentIndex: 0,
+            isPlaying: false,
+            isPaused: false,
+            playbackRate: 1.0,
+            utterance: null,
+            keepAliveInterval: null,
+
+            LANG_MAP: {
+                'fr': 'fr-FR',
+                'en': 'en-US',
+                'es': 'es-ES',
+                'de': 'de-DE',
+                'it': 'it-IT',
+                'pt': 'pt-PT',
+                'nl': 'nl-NL',
+                'ar': 'ar-SA',
+                'ru': 'ru-RU',
+                'zh-CN': 'zh-CN',
+                'ja': 'ja-JP'
+            },
+
+            getActiveLanguage: function() {
+                var savedLang = localStorage.getItem('selected_landing_lang') || 'fr';
+                return this.LANG_MAP[savedLang] || 'fr-FR';
+            },
+
+            splitTextIntoSentences: function(text) {
+                if (!text) return [];
+                var parts = text.split(/(?<=[.!?؟،])\s+/);
+                var chunks = [];
+                parts.forEach(function(p) {
+                    var trimmed = p.trim();
+                    if (trimmed.length > 0) {
+                        if (trimmed.length > 200) {
+                            var clauses = trimmed.split(/(?<=[,;:])\s+/);
+                            clauses.forEach(function(c) {
+                                var sub = c.trim();
+                                if (sub.length > 0) chunks.push(sub);
+                            });
+                        } else {
+                            chunks.push(trimmed);
+                        }
+                    }
+                });
+                return chunks.length > 0 ? chunks : [text];
+            },
+
+            collectReadableElements: function() {
+                var container = document.querySelector('.pdf-document-container');
+                if (!container) return [];
+
+                var selectors = [
+                    '.cover-top-header', '.cover-main-title', '.cover-subtitle', '.cover-tagline', '.cover-author-name', '.cover-bottom-bar',
+                    'h1', 'h2', 'h3', 'p',
+                    '.pdf-quote-text', '.pdf-sister-header',
+                    '.pdf-metaphor-header', '.pdf-metaphor-body',
+                    '.toc-chapter-title', '.toc-chapter-sub',
+                    '.phrase-text', '.error-title', '.error-row span'
+                ].join(', ');
+
+                var candidates = container.querySelectorAll(selectors);
+                var queueItems = [];
+                var self = this;
+
+                candidates.forEach(function(el) {
+                    if (el.offsetWidth === 0 && el.offsetHeight === 0) return;
+                    
+                    var text = el.innerText ? el.innerText.trim() : '';
+                    if (text.length > 1) {
+                        var sentences = self.splitTextIntoSentences(text);
+                        sentences.forEach(function(sentence) {
+                            queueItems.push({
+                                element: el,
+                                text: sentence
+                            });
+                        });
+                    }
+                });
+
+                return queueItems;
+            },
+
+            toggle: function() {
+                if (this.isPlaying) {
+                    if (this.isPaused) {
+                        this.resume();
+                    } else {
+                        this.pause();
+                    }
+                } else {
+                    this.start();
+                }
+            },
+
+            start: function() {
+                if (!('speechSynthesis' in window)) {
+                    alert('La synthèse vocale n\'est pas supportée sur ce navigateur.');
+                    return;
+                }
+                window.speechSynthesis.cancel();
+                this.queue = this.collectReadableElements();
+                if (this.queue.length === 0) {
+                    alert('Aucun texte à lire trouvé.');
+                    return;
+                }
+
+                this.currentIndex = 0;
+                this.isPlaying = true;
+                this.isPaused = false;
+
+                this.startKeepAlive();
+                this.updateUI(true);
+                this.readCurrent();
+            },
+
+            readCurrent: function() {
+                if (!this.isPlaying || this.currentIndex >= this.queue.length) {
+                    this.stop();
+                    return;
+                }
+
+                this.clearHighlights();
+
+                var item = this.queue[this.currentIndex];
+                if (item.element) {
+                    item.element.classList.add('voice-active-highlight');
+                    item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+                var self = this;
+                this.utterance = new SpeechSynthesisUtterance(item.text);
+                this.utterance.lang = this.getActiveLanguage();
+                this.utterance.rate = this.playbackRate;
+
+                this.utterance.onend = function() {
+                    if (self.isPlaying && !self.isPaused) {
+                        self.currentIndex++;
+                        setTimeout(function() {
+                            self.readCurrent();
+                        }, 150);
+                    }
+                };
+
+                this.utterance.onerror = function(e) {
+                    console.warn('Speech error, advancing to next sentence:', e);
+                    if (self.isPlaying) {
+                        self.currentIndex++;
+                        setTimeout(function() {
+                            self.readCurrent();
+                        }, 150);
+                    }
+                };
+
+                var playerWidget = document.getElementById('voice-player-floating');
+                if (playerWidget) playerWidget.classList.add('speaking');
+
+                this.updateStatusText();
+                window.speechSynthesis.speak(this.utterance);
+            },
+
+            startKeepAlive: function() {
+                this.stopKeepAlive();
+                this.keepAliveInterval = setInterval(function() {
+                    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+                        window.speechSynthesis.pause();
+                        window.speechSynthesis.resume();
+                    }
+                }, 8000);
+            },
+
+            stopKeepAlive: function() {
+                if (this.keepAliveInterval) {
+                    clearInterval(this.keepAliveInterval);
+                    this.keepAliveInterval = null;
+                }
+            },
+
+            pause: function() {
+                if (window.speechSynthesis.speaking) {
+                    window.speechSynthesis.pause();
+                    this.isPaused = true;
+                    this.updateUIState();
+                }
+            },
+
+            resume: function() {
+                if (window.speechSynthesis.paused) {
+                    window.speechSynthesis.resume();
+                    this.isPaused = false;
+                    this.updateUIState();
+                } else {
+                    this.readCurrent();
+                }
+            },
+
+            stop: function() {
+                this.stopKeepAlive();
+                window.speechSynthesis.cancel();
+                this.isPlaying = false;
+                this.isPaused = false;
+                this.clearHighlights();
+                this.updateUI(false);
+            },
+
+            setSpeed: function(rate) {
+                this.playbackRate = parseFloat(rate);
+                if (this.isPlaying) {
+                    window.speechSynthesis.cancel();
+                    this.readCurrent();
+                }
+            },
+
+            clearHighlights: function() {
+                document.querySelectorAll('.voice-active-highlight').forEach(function(el) {
+                    el.classList.remove('voice-active-highlight');
+                });
+            },
+
+            updateStatusText: function() {
+                var statusElem = document.getElementById('voice-status-text');
+                if (statusElem && this.queue.length > 0) {
+                    var pct = Math.round(((this.currentIndex + 1) / this.queue.length) * 100);
+                    statusElem.innerText = 'Lecture : ' + (this.currentIndex + 1) + ' / ' + this.queue.length + ' (' + pct + '%)';
+                }
+            },
+
+            updateUI: function(active) {
+                var widget = document.getElementById('voice-player-floating');
+                if (widget) {
+                    if (active) widget.classList.add('active');
+                    else widget.classList.remove('active', 'speaking');
+                }
+                this.updateUIState();
+            },
+
+            updateUIState: function() {
+                var playBtnIcon = document.getElementById('voice-play-icon');
+                var topBtnText = document.getElementById('top-voice-btn-text');
+                var widget = document.getElementById('voice-player-floating');
+
+                if (this.isPlaying && !this.isPaused) {
+                    if (playBtnIcon) playBtnIcon.className = 'fa-solid fa-pause';
+                    if (topBtnText) topBtnText.innerText = 'Pause Vocale';
+                    if (widget) widget.classList.add('speaking');
+                } else if (this.isPaused) {
+                    if (playBtnIcon) playBtnIcon.className = 'fa-solid fa-play';
+                    if (topBtnText) topBtnText.innerText = 'Reprendre Vocale';
+                    if (widget) widget.classList.remove('speaking');
+                } else {
+                    if (playBtnIcon) playBtnIcon.className = 'fa-solid fa-play';
+                    if (topBtnText) topBtnText.innerText = 'Écouter';
+                    if (widget) widget.classList.remove('speaking');
+                }
+            }
+        };
+
+        window.addEventListener('beforeunload', function() {
+            VoiceReader.stop();
+        });
+    </script>
+
+
+</body>
+</html>
+"""
+
+full_html = html_head + html_pages + html_foot
+
+destinations = [
+    r'C:\Users\HP TTS\.gemini\antigravity\scratch\sauver-ton-couple-landing\guide.html',
+    r'C:\Users\HP TTS\.gemini\antigravity\scratch\guide.html',
+    r'C:\Users\HP TTS\.gemini\antigravity\scratch\pdf_guide_lina_rela.html'
+]
+
+brain_dir = r'C:\Users\HP TTS\.gemini\antigravity\brain\2eb21834-41a2-42f5-9d89-cfe471923296'
+os.makedirs(brain_dir, exist_ok=True)
+destinations.append(os.path.join(brain_dir, 'pdf_guide_sauver_ton_couple.html'))
+
+for dst in destinations:
+    with open(dst, 'w', encoding='utf-8') as f:
+        f.write(full_html)
+    print("Successfully generated:", dst, "Size:", len(full_html))
+
