@@ -1,6 +1,7 @@
 # Ignore temporary python scratch scripts
 *.py
 !build_dark_glowup_landing.py
+!build_glowup_guide_pdf.py
 *.txt
 *.js
 __pycache__/
@@ -14,6 +15,12 @@ bonus-3-10-affirmations-app/
 elysiane-dora-rose-landing/
 lina-rela-ebook/
 sauver-ton-couple-landing/
+deploy_glowup/
+
+# Track all main html files
 *.html
 !index.html
 !landing_page.html
+!guide.html
+!pdf_guide_glowup.html
+
