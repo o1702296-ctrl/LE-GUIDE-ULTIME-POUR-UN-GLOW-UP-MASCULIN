@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine Quotidienne d’Assurance Visuelle • Glow Up Masculin</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* SHADOW MONARCH VIOLET PALETTE MATCHING LOCALHOST SITE */
+            --pdf-bg: #07040d;
+            --pdf-card-bg: #0e081c;
+            --page-bg: #ffffff;
+            --page-cream: #faf8fd;
+            --text-dark: #1b1924;
+            --text-heading: #1e0b36;
+            --text-purple: #7e22ce;
+            --accent-purple: #9333ea;
+            --accent-purple-bright: #a855f7;
+            --accent-purple-glow: #c084fc;
+            --accent-purple-light: #f3e8ff;
+            --accent-gold: #d97706;
+            --accent-gold-light: #f59e0b;
+            --border-subtle: #ebdffa;
+            --border-dark: rgba(168, 85, 247, 0.3);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+            --font-luxury: 'Cinzel', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: var(--pdf-bg);
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 0%, #1c0836 0%, #07040d 70%);
+            min-height: 100vh;
+            padding-top: 75px;
+            padding-bottom: 70px;
+        }
+
+        /* Fixed Navigation Toolbar */
+        .pdf-toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background: rgba(12, 6, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(168, 85, 247, 0.2);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 9999;
+            gap: 15px;
+        }
+
+        .pdf-title-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .pdf-title-info i {
+            color: var(--accent-purple-bright);
+            font-size: 1.25rem;
+            filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.8));
+        }
+
+        .pdf-title-info .title-badge {
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .pdf-controls-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chapter-select {
+            background: #1c0e33;
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            max-width: 320px;
+            transition: all 0.2s;
+        }
+
+        .chapter-select:hover, .chapter-select:focus {
+            border-color: var(--accent-purple-bright);
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+        }
+
+        .chapter-select option {
+            background: #150928;
+            color: #ffffff;
+        }
+
+        .pdf-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-toolbar {
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-toolbar:hover {
+            background: rgba(168, 85, 247, 0.35);
+            border-color: var(--accent-purple-bright);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #9333ea, #c084fc);
+            color: #ffffff;
+            border: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        .btn-print:hover {
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.7);
+            filter: brightness(1.08);
+        }
+
+        .page-counter-badge {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Document Container */
+        .pdf-container {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 20px 10px;
+            transition: transform 0.2s ease;
+        }
+
+        /* Page Layout - A4 Ratio */
+        .pdf-page {
+            background: var(--page-bg);
+            width: 100%;
+            min-height: 1123px; /* A4 standard height @ 96 DPI */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 25px rgba(168, 85, 247, 0.15);
+            border-radius: 8px;
+            padding: 55px 65px 45px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-margin-top: 85px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Running Header */
+        .page-running-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8b5cf6;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 12px;
+            margin-bottom: 28px;
+        }
+
+        .page-running-head .brand {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Page Footer */
+        .page-running-foot {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 14px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .page-running-foot .page-num {
+            color: #1e0b36;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+        }
+
+        .page-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typography */
+        h1.title-main {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        h2.title-sub {
+            font-family: var(--font-heading);
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            line-height: 1.45;
+        }
+
+        p.text-p {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: #334155;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        p.text-p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* -------------------------------------------------------------
+           PAGE 1: COVER PAGE
+           ------------------------------------------------------------- */
+        .pdf-page.cover-page {
+            background: linear-gradient(145deg, #090314 0%, #17072b 45%, #2a0b4d 80%, #150529 100%);
+            color: #ffffff;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+        }
+
+        .cover-geometric-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 160px;
+            background: linear-gradient(135deg, #1b0738 0%, #0d041c 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+            z-index: 1;
+            border-bottom: 6px solid var(--accent-gold-light);
+        }
+
+        .cover-glow-orb {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(126, 34, 206, 0.1) 60%, transparent 80%);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 2;
+            padding: 70px 50px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .cover-top-author {
+            margin-top: 15px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold-light);
+            font-weight: 700;
+        }
+
+        .cover-header-group {
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        .cover-badge-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(168, 85, 247, 0.25);
+            border: 1px solid var(--accent-purple-bright);
+            padding: 6px 18px;
+            border-radius: 50px;
+            color: #f3e8ff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .cover-title-main {
+            font-family: var(--font-heading);
+            font-size: 2.9rem;
+            font-weight: 900;
+            line-height: 1.15;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .cover-title-main span {
+            background: linear-gradient(135deg, #ffffff 20%, #e9d5ff 60%, var(--accent-purple-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cover-divider-gold {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold-light), transparent);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .cover-subtitle-box {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            line-height: 1.45;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .cover-subtitle-box strong {
+            color: var(--accent-gold-light);
+        }
+
+        .cover-hero-illustration {
+            width: 300px;
+            height: 410px;
+            margin: 25px auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.45), 0 20px 50px rgba(0, 0, 0, 0.95);
+        }
+
+        .cover-hero-illustration img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        /* MULTI-LANGUAGE SYNCHRONIZATION SELECTOR WITH CRISP HD COUNTRY FLAGS */
+        .lang-switcher-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(168, 85, 247, 0.25);
+            border: 1px solid var(--accent-purple-bright);
+            padding: 5px 12px;
+            border-radius: 50px;
+            box-shadow: 0 0 14px rgba(168, 85, 247, 0.5);
+        }
+
+        .lang-flag-badge {
+            width: 22px;
+            height: 15px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .lang-select {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            font-family: var(--font-main);
+        }
+
+        .lang-select option {
+            background: #150928;
+            color: #ffffff;
+        }
+
+        /* Hide Google Translate top banner to keep theme pristine */
+        body { top: 0 !important; }
+        .goog-te-banner-frame, iframe.skiptranslate, .VIpgJd-Z44p5e-FW12eb-tjhup { display: none !important; }
+        #goog-gt-tt { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+        body > .skiptranslate { display: none !important; }
+
+        html[dir="rtl"] body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .cover-bottom-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .author-signature {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .cover-geometric-bottom {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 320px;
+            height: 160px;
+            background: linear-gradient(135deg, #1b0738 0%, #0d041c 100%);
+            clip-path: polygon(40% 100%, 100% 0, 100% 100%, 0 100%);
+            z-index: 1;
+            border-left: 6px solid var(--accent-gold-light);
+        }
+
+        /* -------------------------------------------------------------
+           DIVIDER PAGES (LEVIERS 01 à 18)
+           ------------------------------------------------------------- */
+        .pdf-page.divider-page {
+            background: linear-gradient(180deg, #0e051c 0%, #18092f 50%, #0e051c 100%);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 80px 60px 50px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .divider-page::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .divider-header-tag {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            color: #e9d5ff;
+            margin-bottom: 20px;
+        }
+
+        .divider-center-badge {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(88, 28, 135, 0.6) 0%, rgba(42, 13, 69, 0.85) 70%);
+            border: 3px solid rgba(192, 132, 252, 0.45);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto;
+            box-shadow: 0 0 60px rgba(168, 85, 247, 0.35), inset 0 0 40px rgba(168, 85, 247, 0.3);
+            position: relative;
+        }
+
+        .divider-number {
+            font-family: var(--font-heading);
+            font-size: 9rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+            text-shadow: 0 6px 30px rgba(0, 0, 0, 0.8), 0 0 30px rgba(168, 85, 247, 0.7);
+        }
+
+        .divider-bottom-title {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .divider-bottom-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .divider-bottom-title .divider-accent-gold {
+            color: var(--accent-gold-light);
+        }
+
+        .divider-footer {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* -------------------------------------------------------------
+           CONTENT PAGES ELEMENTS
+           ------------------------------------------------------------- */
+        .image-card {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+            background: #f8fafc;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: start;
+            margin-bottom: 18px;
+        }
+
+        .gold-subtitle {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        /* Checklist Component */
+        .checklist-day-item {
+            margin-bottom: 22px;
+        }
+
+        .checklist-day-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checklist-day-title i {
+            color: var(--accent-purple);
+        }
+
+        .checklist-ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checklist-ul li {
+            position: relative;
+            padding-left: 28px;
+            font-size: 0.98rem;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .checklist-ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 4px;
+            top: 0;
+            color: var(--accent-purple);
+            font-weight: 900;
+            font-size: 1.05rem;
+        }
+
+        /* Sommaire Table */
+        .sommaire-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .sommaire-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px dotted #cbd5e1;
+            padding-bottom: 6px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+        }
+
+        .sommaire-row:hover {
+            color: var(--accent-purple);
+            transform: translateX(4px);
+        }
+
+        .sommaire-left {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .sommaire-tag {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--accent-purple);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .sommaire-desc {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .sommaire-page {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--accent-purple);
+            margin-left: 15px;
+        }
+
+        /* =============================================================
+           PRINT OPTIMIZATIONS (A4 EXACT PAGES)
+           ============================================================= */
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+            }
+
+            .pdf-toolbar {
+                display: none !important;
+            }
+
+            .pdf-container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                gap: 0 !important;
+            }
+
+            .pdf-page {
+                width: 100% !important;
+                height: 100vh !important;
+                min-height: 100vh !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 45px 50px !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                box-sizing: border-box !important;
+            }
+
+            .pdf-page.cover-page, .pdf-page.divider-page {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        /* Responsive Mobile Mode */
+        @media (max-width: 768px) {
+            .pdf-toolbar {
+                padding: 0 12px;
+                height: auto;
+                flex-wrap: wrap;
+                padding: 10px;
+                justify-content: center;
+            }
+            .chapter-select {
+                max-width: 100%;
+            }
+            .pdf-page {
+                padding: 30px 20px;
+                min-height: auto;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .cover-title-main {
+                font-size: 2.1rem;
+            }
+            .divider-number {
+                font-size: 6rem;
+            }
+            .divider-center-badge {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    
+        /* =========================================================
+           VOICE READER & LIP-SYNC SYNCHRONIZATION STYLES
+           ========================================================= */
+        .btn-voice-toggle {
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            color: #ffffff;
+            border: 1px solid rgba(245, 158, 11, 0.7);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+        .btn-voice-toggle:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6), 0 0 12px rgba(245, 158, 11, 0.4);
+            background: linear-gradient(135deg, #9333ea, #c084fc);
+        }
+
+        .voice-player-floating {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 3000;
+            background: rgba(15, 5, 30, 0.95);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1.5px solid #a855f7;
+            border-radius: 18px;
+            padding: 12px 18px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 25px rgba(168, 85, 247, 0.35);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            max-width: 480px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(150%);
+            opacity: 0;
+            pointer-events: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .voice-player-floating.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .avatar-lipsync-container {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+            overflow: hidden;
+            border: 2px solid rgba(245, 158, 11, 0.7);
+        }
+        .avatar-shelby-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .voice-player-floating.speaking .avatar-lipsync-container {
+            animation: avatarPulse 1.2s infinite alternate ease-in-out;
+            border-color: #f59e0b;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.9), 0 0 10px rgba(245, 158, 11, 0.6);
+        }
+        @keyframes avatarPulse {
+            0% { transform: scale(1); filter: brightness(1); }
+            100% { transform: scale(1.08); filter: brightness(1.25); }
+        }
+
+        .soundwave-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 2.5px;
+            height: 16px;
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 2, 20, 0.75);
+            padding: 2px 4px;
+            border-radius: 8px;
+        }
+        .soundwave-bar {
+            width: 3px;
+            background: #f59e0b;
+            border-radius: 2px;
+            height: 4px;
+            transition: height 0.15s ease;
+        }
+        .voice-player-floating.speaking .soundwave-bar:nth-child(1) { animation: waveAnim 0.5s infinite alternate ease-in-out; }
+        .voice-player-floating.speaking .soundwave-bar:nth-child(2) { animation: waveAnim 0.6s 0.15s infinite alternate ease-in-out; }
+        .voice-player-floating.speaking .soundwave-bar:nth-child(3) { animation: waveAnim 0.45s 0.3s infinite alternate ease-in-out; }
+        .voice-player-floating.speaking .soundwave-bar:nth-child(4) { animation: waveAnim 0.55s 0.1s infinite alternate ease-in-out; }
+        @keyframes waveAnim {
+            0% { height: 3px; background: #c084fc; }
+            100% { height: 14px; background: #f59e0b; }
+        }
+
+        .voice-info-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+            overflow: hidden;
+        }
+        .voice-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #f59e0b;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .voice-status {
+            font-size: 0.74rem;
+            color: #e9d5ff;
+            font-style: italic;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .voice-controls-btns {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-voice-ctrl {
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.78rem;
+            transition: all 0.2s ease;
+        }
+        .btn-voice-ctrl:hover {
+            background: #a855f7;
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+        .btn-voice-ctrl-play {
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            border-color: #f59e0b;
+            color: #ffffff;
+            width: 36px;
+            height: 36px;
+            font-size: 0.88rem;
+        }
+        .btn-voice-ctrl-close {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.4);
+        }
+        .btn-voice-ctrl-close:hover {
+            background: #ef4444;
+        }
+        .voice-speed-select {
+            background: #1c0836;
+            color: #f59e0b;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            border-radius: 8px;
+            padding: 3px 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            outline: none;
+            font-weight: 700;
+        }
+
+        /* Highlighting of sentence currently read */
+        .voice-active-highlight {
+            background: rgba(168, 85, 247, 0.25) !important;
+            outline: 2px solid rgba(245, 158, 11, 0.8) !important;
+            outline-offset: 4px;
+            border-radius: 6px;
+            box-shadow: 0 0 22px rgba(168, 85, 247, 0.45);
+            transition: background 0.3s ease, outline 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .voice-player-floating {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                max-width: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- =========================================================
+         FIXED TOP NAVIGATION TOOLBAR
+         ========================================================= -->
+    <header class="pdf-toolbar">
+        <div class="pdf-title-info">
+            <i class="fa-solid fa-crown" style="color: #f59e0b;"></i>
+            <span>BONUS #3 : Routine Quotidienne d’Assurance Visuelle</span>
+        </div>
+
+        <div class="pdf-controls-center">
+            <select class="chapter-select" id="chapterNav" onchange="jumpToPage(this.value)">
+                <option value="page-1">Page 1 / 3</option>
+<option value="page-2">Page 2 / 3</option>
+<option value="page-3">Page 3 / 3</option>
+
+            </select>
+
+            <!-- Multi-Language Selector Widget with HD Country Flags -->
+            <div class="lang-switcher-wrap">
+                <img id="selected-lang-flag" src="https://flagcdn.com/w40/fr.png" alt="Drapeau Langue" class="lang-flag-badge">
+                <select id="language-select" class="lang-select" onchange="translatePage(this.value)">
+                    <option value="fr" data-flag="https://flagcdn.com/w40/fr.png" selected>Français (FR)</option>
+                    <option value="en" data-flag="https://flagcdn.com/w40/gb.png">English (UK)</option>
+                    <option value="es" data-flag="https://flagcdn.com/w40/es.png">Español (ES)</option>
+                    <option value="de" data-flag="https://flagcdn.com/w40/de.png">Deutsch (DE)</option>
+                    <option value="pt" data-flag="https://flagcdn.com/w40/pt.png">Português (PT)</option>
+                    <option value="it" data-flag="https://flagcdn.com/w40/it.png">Italiano (IT)</option>
+                    <option value="ar" data-flag="https://flagcdn.com/w40/sa.png">العربية (AR)</option>
+                    <option value="zh-CN" data-flag="https://flagcdn.com/w40/cn.png">中文 (ZH)</option>
+                    <option value="ru" data-flag="https://flagcdn.com/w40/ru.png">Русский (RU)</option>
+                    <option value="ja" data-flag="https://flagcdn.com/w40/jp.png">日本語 (JA)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="pdf-controls-right">
+            <span class="page-counter-badge" id="pageDisplay">Page 1 / 3</span>
+
+            <button id="btn-global-voice-start" class="btn-voice-toggle" onclick="VoiceReader.toggle()" title="Écouter le Guide avec synchronisation vocale et labiale">
+                <i class="fa-solid fa-volume-high" id="top-voice-btn-icon"></i>
+                <span id="top-voice-btn-text">Écouter</span>
+            </button>
+
+            <button class="btn-toolbar" onclick="changeZoom(-0.1)" title="Zoom -">
+                <i class="fa-solid fa-magnifying-glass-minus"></i>
+            </button>
+            <button class="btn-toolbar" onclick="changeZoom(0.1)" title="Zoom +">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </button>
+            <a href="guide.html" class="btn-toolbar" title="Retour au Guide Principal" style="text-decoration: none; color: #f8fafc;">
+                <i class="fa-solid fa-book-open" style="color: #a855f7;"></i>
+                <span>Guide</span>
+            </a>
+            <a href="index.html" class="btn-toolbar" title="Retour à l'accueil" style="text-decoration: none; color: #f8fafc;">
+                <i class="fa-solid fa-arrow-left" style="color: #f59e0b;"></i>
+                <span>Site</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         DOCUMENT CONTAINER
+         ========================================================= -->
+    <main class="pdf-container" id="pdfContainer">
+
+        <!-- ================= PAGE 1 : COVER ================= -->
+        <article class="pdf-page cover-page" id="page-1">
+            <div class="cover-geometric-top"></div>
+            <div class="cover-glow-orb" style="top: 20%; left: 25%;"></div>
+
+            <div class="cover-content">
+                <div class="cover-header-group">
+                    <div class="cover-badge-top">
+                        <i class="fa-solid fa-sparkles"></i>
+                        <span>Bonus Exclusif #3</span>
+                    </div>
+
+                    <h1 class="cover-title-main">
+                        BONUS #3 :<br>
+                        <span>Routine Quotidienne d’Assurance Visuelle</span>
+                    </h1>
+
+                    <div class="cover-divider-gold"></div>
+
+                    <div class="cover-subtitle-box">
+                        Le rituel 3 temps (Matin, Journée, Soir) pour installer une présence magnétique
+                    </div>
+                </div>
+
+                <div class="cover-character-art">
+                    <img src="images/glowup_bonus3_suit.jpg?v=glowup_v3_fixed" alt="Routine Quotidienne d’Assurance Visuelle" class="cover-character-img" style="max-height: 480px; object-fit: cover; border-radius: 16px; border: 2px solid rgba(168, 85, 247, 0.4); box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 30px rgba(168, 85, 247, 0.3);">
+                </div>
+
+                <div class="cover-footer-meta">
+                    <div class="cover-meta-badge">ÉDITION GLOW UP MASCULIN</div>
+                    <div class="cover-meta-sub">PROGRAMME ULTIME • TOUS DROITS RÉSERVÉS</div>
+                </div>
+            </div>
+
+            <div class="page-running-foot">
+                <span class="page-num">1</span>
+            </div>
+        </article>
+
+        
+        <!-- ================= PAGE 2 ================= -->
+        <article class="pdf-page" id="page-2">
+            <div class="page-running-head">
+                <span class="brand"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i> Bonus 3 • Routine Quotidienne • Partie 1</span>
+                <span>Page 2</span>
+            </div>
+
+            <div class="page-body">
+                <div class="gold-subtitle" style="font-size: 1.4rem; margin-bottom: 20px;">
+                    Routine Quotidienne d’Assurance Visuelle
+                </div>
+
+                <div class="quote-box" style="margin-bottom: 22px; background: rgba(28, 8, 54, 0.6); border-left: 4px solid #a855f7; padding: 18px 22px; border-radius: 8px;">
+                    <p class="text-p" style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #f8fafc;">
+                        Ce bonus a été conçu pour t’aider à renforcer, jour après jour, une présence plus confiante, plus stable et plus attirante, sans forcer et sans jouer un rôle.
+                    </p>
+                </div>
+
+                <div class="quote-box" style="margin-bottom: 25px; background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 18px 22px; border-radius: 8px;">
+                    <div style="font-family: 'Cinzel', serif; font-size: 1.08rem; color: #f59e0b; font-weight: 700; margin-bottom: 8px;">
+                        <i class="fa-solid fa-bolt"></i> Pourquoi cette routine fonctionne :
+                    </div>
+                    <p class="text-p" style="margin: 0; font-size: 0.98rem; line-height: 1.6; color: #f8fafc;">
+                        L’assurance visuelle ne vient pas du hasard. Elle est le résultat de micro ajustements répétés : posture, regard, respiration, rythme corporel. Cette routine agit directement sur ces leviers invisibles.
+                    </p>
+                </div>
+
+                <div class="routine-block" style="background: rgba(15, 5, 29, 0.9); border: 1.5px solid rgba(168, 85, 247, 0.4); border-radius: 14px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: #c084fc; margin-bottom: 14px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-sun" style="color: #f59e0b;"></i> Routine du matin (3 minutes)
+                    </h3>
+                    <ul class="checklist-ul" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                        <li style="display: flex; align-items: flex-start; gap: 10px; color: #f8fafc; font-size: 0.98rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Redresse ton dos</strong> et ouvre légèrement les épaules.</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; color: #f8fafc; font-size: 0.98rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Respire lentement</strong> par le nez pendant 60 secondes.</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; color: #f8fafc; font-size: 0.98rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Regarde-toi dans le miroir</strong>, sans jugement, pendant 30 secondes.</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; color: #f8fafc; font-size: 0.98rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Ancre une posture stable</strong> et assurée avant de sortir.</span></li>
+                    </ul>
+                </div>
+
+                <div class="routine-block" style="background: rgba(15, 5, 29, 0.9); border: 1.5px solid rgba(168, 85, 247, 0.4); border-radius: 14px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: #c084fc; margin-bottom: 14px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-cloud-sun" style="color: #38bdf8;"></i> Routine dans la journée (2 minutes)
+                    </h3>
+                    <ul class="checklist-ul" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                        <li style="display: flex; align-items: flex-start; gap: 10px; color: #f8fafc; font-size: 0.98rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Marche plus lentement</strong> que d’habitude, avec calme et contrôle.</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; color: #f8fafc; font-size: 0.98rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Maintiens un regard calme</strong> et franc lorsque tu t'adresses aux autres.</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; color: #f8fafc; font-size: 0.98rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Évite les gestes nerveux</strong>, précipités ou inutiles.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-running-foot">
+                <span class="page-num">2</span>
+            </div>
+        </article>
+
+        <!-- ================= PAGE 3 ================= -->
+        <article class="pdf-page" id="page-3">
+            <div class="page-running-head">
+                <span class="brand"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i> Bonus 3 • Routine Quotidienne • Partie 2</span>
+                <span>Page 3</span>
+            </div>
+
+            <div class="page-body">
+                <div class="routine-block" style="background: rgba(15, 5, 29, 0.9); border: 1.5px solid rgba(168, 85, 247, 0.4); border-radius: 14px; padding: 22px; margin-bottom: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.2rem; color: #c084fc; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-moon" style="color: #a855f7;"></i> Routine du soir (2 minutes)
+                    </h3>
+                    <ul class="checklist-ul" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+                        <li style="display: flex; align-items: flex-start; gap: 12px; color: #f8fafc; font-size: 1.02rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Reviens mentalement sur ta posture de la journée</strong> : analyse tes interactions avec lucidité.</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; color: #f8fafc; font-size: 1.02rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Note ce qui a changé dans ton attitude</strong> et comment les gens ont réagi différemment.</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; color: #f8fafc; font-size: 1.02rem;"><i class="fa-solid fa-circle-check" style="color: #a855f7; margin-top: 4px;"></i> <span><strong>Relâche toutes les tensions du corps</strong> (épaules, nuque, mâchoire) avant de dormir.</span></li>
+                    </ul>
+                </div>
+
+                <div class="quote-box" style="margin-bottom: 25px; background: rgba(245, 158, 11, 0.15); border-left: 4px solid #f59e0b; padding: 22px 26px; border-radius: 10px; box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);">
+                    <div style="font-family: 'Cinzel', serif; font-size: 1.2rem; color: #f59e0b; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-trophy"></i> Résultat attendu :
+                    </div>
+                    <p class="text-p" style="margin: 0; font-size: 1.08rem; line-height: 1.7; color: #f8fafc; font-weight: 500;">
+                        En quelques jours, ton corps adopte naturellement une présence plus posée. Les autres le ressentent avant même que tu ne parles.
+                    </p>
+                </div>
+
+                <div class="image-card" style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(28, 8, 54, 0.4); border-radius: 12px; border: 1px solid rgba(168, 85, 247, 0.3);">
+                    <div style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: #c084fc; font-weight: 700; margin-bottom: 8px;">
+                        PROGRAMME GLOW UP MASCULIN 30 JOURS
+                    </div>
+                    <div style="color: #94a3b8; font-size: 0.88rem;">
+                        La discipline répétée crée une présence inégalée.
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-running-foot">
+                <span class="page-num">3</span>
+            </div>
+        </article>
+    
+
+    <!-- =========================================================
+         FLOATING LIP-SYNC AUDIO READER WIDGET
+         ========================================================= -->
+    <div id="voice-player-floating" class="voice-player-floating">
+        <div class="avatar-lipsync-container" title="Lecteur Audio Glow Up">
+            <img src="images/guide/cover_character.png?v=glowup_v3_fixed" alt="Avatar Glow Up" class="avatar-shelby-img">
+            <div class="soundwave-bars">
+                <div class="soundwave-bar"></div>
+                <div class="soundwave-bar"></div>
+                <div class="soundwave-bar"></div>
+                <div class="soundwave-bar"></div>
+            </div>
+        </div>
+
+        <div class="voice-info-group">
+            <div class="voice-title" id="voice-title-display">BONUS #3 : Routine Quotidienne d’Assurance Visuelle</div>
+            <div class="voice-status" id="voice-status-display">Prêt pour la synchronisation vocale</div>
+        </div>
+
+        <div class="voice-controls-btns">
+            <button class="btn-voice-ctrl" onclick="VoiceReader.prev()" title="Phrase précédente">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button class="btn-voice-ctrl btn-voice-ctrl-play" onclick="VoiceReader.toggle()" title="Lecture / Pause">
+                <i class="fa-solid fa-play" id="voice-play-icon"></i>
+            </button>
+            <button class="btn-voice-ctrl" onclick="VoiceReader.next()" title="Phrase suivante">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <select class="voice-speed-select" onchange="VoiceReader.setRate(parseFloat(this.value))" title="Vitesse de lecture">
+                <option value="0.85">0.85x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.2">1.2x</option>
+                <option value="1.5">1.5x</option>
+            </select>
+            <button class="btn-voice-ctrl btn-voice-ctrl-close" onclick="VoiceReader.stop()" title="Fermer le lecteur">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    </main>
+
+    <!-- Interactive Navigation Scripts -->
+    <script>
+        function jumpToPage(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        let currentZoom = 1.0;
+        function changeZoom(delta) {
+            currentZoom = Math.min(1.4, Math.max(0.65, currentZoom + delta));
+            const container = document.getElementById('pdfContainer');
+            if (container) {
+                container.style.transform = `scale(${currentZoom})`;
+                container.style.transformOrigin = 'top center';
+            }
+        }
+
+        // Auto update page indicator on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const pageNum = id.replace('page-', '');
+                    document.getElementById('pageDisplay').textContent = `Page ${pageNum} / 62`;
+                    
+                    const select = document.getElementById('chapterNav');
+                    if (select) {
+                        for (let i = 0; i < select.options.length; i++) {
+                            if (select.options[i].value === id) {
+                                select.selectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.pdf-page').forEach(page => {
+            observer.observe(page);
+        });
+    </script>
+
+    <!-- GOOGLE TRANSLATE MULTI-LANGUAGE SYNCHRONIZATION ENGINE -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'fr,en,es,de,pt,it,ar,zh-CN,ru,ja',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function translatePage(langCode) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+                localStorage.setItem('glowup_landing_lang', langCode);
+            } else {
+                setTimeout(function() {
+                    var s = document.querySelector('.goog-te-combo');
+                    if (s) {
+                        s.value = langCode;
+                        s.dispatchEvent(new Event('change'));
+                        localStorage.setItem('glowup_landing_lang', langCode);
+                    }
+                }, 500);
+            }
+            updateLanguageFlagBadge(langCode);
+            if (typeof VoiceReader !== 'undefined') {
+                VoiceReader.onLanguageChanged(langCode);
+            }
+
+            // Arabic RTL direction support
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.removeAttribute('dir');
+            }
+        }
+
+        function updateLanguageFlagBadge(langCode) {
+            var flagImg = document.getElementById('selected-lang-flag');
+            var langSelect = document.getElementById('language-select');
+            if (flagImg && langSelect) {
+                var selectedOption = langSelect.options[langSelect.selectedIndex];
+                if (selectedOption) {
+                    var flagUrl = selectedOption.getAttribute('data-flag');
+                    if (flagUrl) {
+                        flagImg.src = flagUrl;
+                    }
+                }
+            }
+        }
+
+        // Synchronize and restore saved language preference from localStorage
+        window.addEventListener('load', function() {
+            var savedLang = localStorage.getItem('glowup_landing_lang');
+            if (savedLang) {
+                setTimeout(function() {
+                    var langSelect = document.getElementById('language-select');
+                    if (langSelect) {
+                        langSelect.value = savedLang;
+                        updateLanguageFlagBadge(savedLang);
+                    }
+                    if (savedLang !== 'fr') {
+                        translatePage(savedLang);
+                    }
+                }, 1000);
+            }
+        });
+
+        /* =========================================================
+           ROBUST MULTI-LANGUAGE VOICE READER & LIP-SYNC ENGINE
+           ========================================================= */
+        var VoiceReader = {
+            queue: [],
+            currentIndex: 0,
+            isPlaying: false,
+            isPaused: false,
+            playbackRate: 1.0,
+            utterance: null,
+            keepAliveInterval: null,
+
+            LANG_MAP: {
+                'fr': 'fr-FR',
+                'en': 'en-US',
+                'es': 'es-ES',
+                'de': 'de-DE',
+                'pt': 'pt-PT',
+                'it': 'it-IT',
+                'ar': 'ar-SA',
+                'zh-CN': 'zh-CN',
+                'ru': 'ru-RU',
+                'ja': 'ja-JP'
+            },
+
+            getActiveLanguage: function() {
+                var langSelect = document.getElementById('language-select');
+                var langCode = (langSelect && langSelect.value) || localStorage.getItem('glowup_landing_lang') || 'fr';
+                return this.LANG_MAP[langCode] || 'fr-FR';
+            },
+
+            getBestVoice: function(targetLang) {
+                if (!('speechSynthesis' in window)) return null;
+                var voices = window.speechSynthesis.getVoices();
+                if (!voices || voices.length === 0) return null;
+                var prefix = targetLang.split('-')[0].toLowerCase();
+                
+                // 1. Exact match
+                for (var i = 0; i < voices.length; i++) {
+                    var vLang = voices[i].lang.replace('_', '-').toLowerCase();
+                    if (vLang === targetLang.toLowerCase()) {
+                        return voices[i];
+                    }
+                }
+                // 2. Prefix match
+                for (var j = 0; j < voices.length; j++) {
+                    if (voices[j].lang.toLowerCase().indexOf(prefix) === 0) {
+                        return voices[j];
+                    }
+                }
+                return voices[0];
+            },
+
+            splitTextIntoSentences: function(text) {
+                if (!text) return [];
+                var clean = text.split(String.fromCharCode(10)).join(' ').split(String.fromCharCode(13)).join(' ').trim();
+                if (!clean) return [];
+                var terminators = ['.', '!', '?', '。', '！', '？', '؛'];
+                var chunks = [];
+                var cur = '';
+                for (var i = 0; i < clean.length; i++) {
+                    var ch = clean.charAt(i);
+                    cur += ch;
+                    if (terminators.indexOf(ch) !== -1) {
+                        var trimmed = cur.trim();
+                        if (trimmed.length > 0) chunks.push(trimmed);
+                        cur = '';
+                    }
+                }
+                if (cur.trim().length > 0) {
+                    chunks.push(cur.trim());
+                }
+                return chunks.length > 0 ? chunks : [clean];
+            },
+
+            collectReadableElements: function() {
+                var container = document.getElementById('pdfContainer');
+                if (!container) return [];
+
+                var selectors = [
+                    '.cover-title-main', '.cover-subtitle-box',
+                    'h1', 'h2', 'h3',
+                    '.gold-subtitle',
+                    '.text-p',
+                    '.checklist-day-title', '.checklist-ul li',
+                    '.key-point-title', '.key-point-desc',
+                    '.rule-title', '.rule-desc',
+                    '.quote-highlight'
+                ].join(', ');
+
+                var candidates = container.querySelectorAll(selectors);
+                var queueItems = [];
+                var self = this;
+
+                candidates.forEach(function(el) {
+                    if (el.offsetWidth === 0 && el.offsetHeight === 0) return;
+                    var text = el.innerText ? el.innerText.trim() : '';
+                    if (text.length > 1) {
+                        var sentences = self.splitTextIntoSentences(text);
+                        sentences.forEach(function(sentence) {
+                            queueItems.push({
+                                element: el,
+                                text: sentence
+                            });
+                        });
+                    }
+                });
+
+                return queueItems;
+            },
+
+            toggle: function() {
+                if (this.isPlaying) {
+                    if (this.isPaused) {
+                        this.resume();
+                    } else {
+                        this.pause();
+                    }
+                } else {
+                    this.start();
+                }
+            },
+
+            start: function(startIndex) {
+                if (!('speechSynthesis' in window)) {
+                    alert("La synthèse vocale n'est pas supportée sur ce navigateur.");
+                    return;
+                }
+
+                window.speechSynthesis.cancel();
+                this.queue = this.collectReadableElements();
+                if (this.queue.length === 0) {
+                    alert("Aucun texte à lire trouvé.");
+                    return;
+                }
+
+                this.currentIndex = (typeof startIndex === 'number' && startIndex >= 0) ? startIndex : 0;
+                this.isPlaying = true;
+                this.isPaused = false;
+
+                this.startKeepAlive();
+                this.updateUI(true);
+                this.readCurrent();
+            },
+
+            readCurrent: function() {
+                if (!this.isPlaying || this.currentIndex >= this.queue.length) {
+                    this.stop();
+                    return;
+                }
+
+                this.clearHighlights();
+
+                var item = this.queue[this.currentIndex];
+                if (item.element) {
+                    item.element.classList.add('voice-active-highlight');
+                    item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+                var self = this;
+                var lang = this.getActiveLanguage();
+                this.utterance = new SpeechSynthesisUtterance(item.text);
+                this.utterance.lang = lang;
+                this.utterance.rate = this.playbackRate;
+
+                var voice = this.getBestVoice(lang);
+                if (voice) {
+                    this.utterance.voice = voice;
+                }
+
+                this.utterance.onend = function() {
+                    if (self.isPlaying && !self.isPaused) {
+                        self.currentIndex++;
+                        setTimeout(function() {
+                            self.readCurrent();
+                        }, 120);
+                    }
+                };
+
+                this.utterance.onerror = function(e) {
+                    console.warn('Speech error, phrase suivante:', e);
+                    if (self.isPlaying) {
+                        self.currentIndex++;
+                        setTimeout(function() {
+                            self.readCurrent();
+                        }, 120);
+                    }
+                };
+
+                var playerWidget = document.getElementById('voice-player-floating');
+                if (playerWidget) playerWidget.classList.add('speaking');
+
+                this.updateStatusText();
+                window.speechSynthesis.speak(this.utterance);
+            },
+
+            startKeepAlive: function() {
+                this.stopKeepAlive();
+                this.keepAliveInterval = setInterval(function() {
+                    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+                        window.speechSynthesis.pause();
+                        window.speechSynthesis.resume();
+                    }
+                }, 8000);
+            },
+
+            stopKeepAlive: function() {
+                if (this.keepAliveInterval) {
+                    clearInterval(this.keepAliveInterval);
+                    this.keepAliveInterval = null;
+                }
+            },
+
+            pause: function() {
+                if (window.speechSynthesis.speaking) {
+                    window.speechSynthesis.pause();
+                    this.isPaused = true;
+                    this.updateUIState();
+                }
+            },
+
+            resume: function() {
+                if (window.speechSynthesis.paused) {
+                    window.speechSynthesis.resume();
+                    this.isPaused = false;
+                    this.updateUIState();
+                } else {
+                    this.start(this.currentIndex);
+                }
+            },
+
+            stop: function() {
+                this.stopKeepAlive();
+                window.speechSynthesis.cancel();
+                this.clearHighlights();
+                this.isPlaying = false;
+                this.isPaused = false;
+                this.currentIndex = 0;
+                this.updateUI(false);
+            },
+
+            next: function() {
+                if (!this.isPlaying) {
+                    this.start(0);
+                    return;
+                }
+                window.speechSynthesis.cancel();
+                if (this.currentIndex < this.queue.length - 1) {
+                    this.currentIndex++;
+                    this.isPaused = false;
+                    this.readCurrent();
+                } else {
+                    this.stop();
+                }
+            },
+
+            prev: function() {
+                if (!this.isPlaying) return;
+                window.speechSynthesis.cancel();
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
+                    this.isPaused = false;
+                    this.readCurrent();
+                } else {
+                    this.readCurrent();
+                }
+            },
+
+            setRate: function(rate) {
+                this.playbackRate = rate;
+                if (this.isPlaying && !this.isPaused && this.utterance) {
+                    window.speechSynthesis.cancel();
+                    this.readCurrent();
+                }
+            },
+
+            clearHighlights: function() {
+                var highlighted = document.querySelectorAll('.voice-active-highlight');
+                highlighted.forEach(function(el) {
+                    el.classList.remove('voice-active-highlight');
+                });
+            },
+
+            updateUI: function(active) {
+                var widget = document.getElementById('voice-player-floating');
+                if (widget) {
+                    if (active) widget.classList.add('active');
+                    else widget.classList.remove('active', 'speaking');
+                }
+                this.updateUIState();
+            },
+
+            updateUIState: function() {
+                var playBtnIcon = document.getElementById('voice-play-icon');
+                var topBtnText = document.getElementById('top-voice-btn-text');
+                var topBtnIcon = document.getElementById('top-voice-btn-icon');
+                var widget = document.getElementById('voice-player-floating');
+
+                if (this.isPlaying && !this.isPaused) {
+                    if (playBtnIcon) playBtnIcon.className = 'fa-solid fa-pause';
+                    if (topBtnText) topBtnText.innerText = 'Pause Vocale';
+                    if (topBtnIcon) topBtnIcon.className = 'fa-solid fa-pause';
+                    if (widget) widget.classList.add('speaking');
+                } else if (this.isPlaying && this.isPaused) {
+                    if (playBtnIcon) playBtnIcon.className = 'fa-solid fa-play';
+                    if (topBtnText) topBtnText.innerText = 'Reprendre';
+                    if (topBtnIcon) topBtnIcon.className = 'fa-solid fa-play';
+                    if (widget) widget.classList.remove('speaking');
+                    var status = document.getElementById('voice-status-display');
+                    if (status) status.innerText = 'En pause';
+                } else {
+                    if (playBtnIcon) playBtnIcon.className = 'fa-solid fa-play';
+                    if (topBtnText) topBtnText.innerText = 'Écouter le Guide';
+                    if (topBtnIcon) topBtnIcon.className = 'fa-solid fa-volume-high';
+                    if (widget) widget.classList.remove('speaking', 'active');
+                }
+            },
+
+            updateStatusText: function() {
+                if (!this.isPlaying) return;
+                var titleDisplay = document.getElementById('voice-title-display');
+                var statusDisplay = document.getElementById('voice-status-display');
+
+                if (this.currentIndex < this.queue.length) {
+                    var item = this.queue[this.currentIndex];
+                    if (item.element) {
+                        var pageArticle = item.element.closest('.pdf-page');
+                        if (pageArticle && titleDisplay) {
+                            var runningHead = pageArticle.querySelector('.page-running-head .brand');
+                            if (runningHead) {
+                                titleDisplay.innerText = runningHead.innerText.trim();
+                            } else {
+                                var pageId = pageArticle.getAttribute('id') || '';
+                                titleDisplay.innerText = 'Guide Glow Up • ' + pageId.replace('-', ' ').toUpperCase();
+                            }
+                        }
+                    }
+                    if (statusDisplay) {
+                        statusDisplay.innerText = 'Phrase ' + (this.currentIndex + 1) + ' / ' + this.queue.length;
+                    }
+                }
+            },
+
+            onLanguageChanged: function(newLang) {
+                if (this.isPlaying) {
+                    var wasPaused = this.isPaused;
+                    var savedIndex = this.currentIndex;
+                    window.speechSynthesis.cancel();
+                    var self = this;
+                    setTimeout(function() {
+                        self.queue = self.collectReadableElements();
+                        if (savedIndex < self.queue.length) {
+                            self.currentIndex = savedIndex;
+                        } else {
+                            self.currentIndex = 0;
+                        }
+                        if (!wasPaused) {
+                            self.readCurrent();
+                        } else {
+                            self.updateUIState();
+                        }
+                    }, 800);
+                }
+            }
+        };
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
