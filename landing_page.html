@@ -831,6 +831,23 @@
             transform: rotateX(80deg);
         }
 
+        /* 3D AUDIO MOCKUP EQUALIZER ANIMATION */
+        @keyframes eqBarAnim {
+            0%, 100% { height: 5px; }
+            50% { height: 18px; }
+        }
+        .audio-eq-bar {
+            width: 3px;
+            background: linear-gradient(180deg, #c084fc 0%, #a855f7 100%);
+            border-radius: 2px;
+            animation: eqBarAnim 1.2s ease-in-out infinite;
+        }
+        .audio-eq-bar:nth-child(1) { animation-delay: 0.0s; }
+        .audio-eq-bar:nth-child(2) { animation-delay: 0.3s; }
+        .audio-eq-bar:nth-child(3) { animation-delay: 0.15s; }
+        .audio-eq-bar:nth-child(4) { animation-delay: 0.4s; }
+        .audio-eq-bar:nth-child(5) { animation-delay: 0.2s; }
+
         .bonus-card-body {
             padding: 24px;
             flex-grow: 1;
@@ -1731,6 +1748,13 @@
                         Même si tu penses ne pas être “beau de base”, <strong>sans salle de sport, sans produits coûteux, et sans faux discours.</strong>
                     </p>
 
+                    <!-- AUDIO VERSION HIGHLIGHT BADGE -->
+                    <div style="margin: 16px 0 22px; display: inline-flex; align-items: center; gap: 10px; background: rgba(168, 85, 247, 0.18); border: 1px solid var(--accent-purple-bright); padding: 8px 16px; border-radius: var(--radius-full); box-shadow: 0 0 20px rgba(168, 85, 247, 0.35); flex-wrap: wrap;">
+                        <i class="fa-solid fa-headphones" style="color: #f59e0b; font-size: 1.1rem;"></i>
+                        <span style="color: #ffffff; font-weight: 800; font-size: 0.92rem;">VERSION AUDIO MP3 INCLUSE</span>
+                        <span style="color: var(--accent-purple-glow); font-size: 0.82rem; font-weight: 600;">(Guide Complet + Tous Les Bonus en Écoute Illimitée)</span>
+                    </div>
+
                     <a href="https://syalpfmx.mychariow.shop/prd_9gal1zvj/checkout" class="btn-cta">
                         <span>DEVENIR PLUS ATTIRANT DÈS MAINTENANT <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></span>
                     </a>
@@ -1896,6 +1920,81 @@
             <div class="section-title-wrap">
                 <span class="section-subtitle-tag">Contenu Du Guide</span>
                 <h2 class="section-title">Voici exactement ce qui te rendra plus attirant</h2>
+            </div>
+
+            <!-- AUDIO INTEGRATION ANNOUNCEMENT BANNER WITH 3D AUDIO MOCKUP -->
+            <div style="background: linear-gradient(135deg, rgba(24, 12, 44, 0.96) 0%, rgba(14, 9, 26, 0.96) 100%); border: 1.5px solid var(--accent-purple-bright); border-radius: var(--radius-lg); padding: 32px 36px; margin-bottom: 50px; box-shadow: 0 0 40px rgba(168, 85, 247, 0.35); display: flex; align-items: center; justify-content: space-between; gap: 36px; flex-wrap: wrap; backdrop-filter: blur(16px);">
+                
+                <!-- LEFT / MOBILE TOP: 3D AUDIO DIGITAL PRODUCT MOCKUP STAGE -->
+                <div style="flex-shrink: 0; margin: 0 auto; position: relative; width: 230px; height: 260px; display: flex; align-items: center; justify-content: center; perspective: 1000px;">
+                    
+                    <!-- Pedestal Shadow -->
+                    <div style="position: absolute; bottom: 8px; width: 195px; height: 24px; background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.95) 0%, rgba(168, 85, 247, 0.5) 45%, transparent 75%); filter: blur(8px); border-radius: 50%; transform: rotateX(80deg);"></div>
+                    
+                    <!-- Direct Smoke Clouds emanating out of Mockup Stage -->
+                    <div class="mockup-direct-smoke" style="z-index: 2;">
+                        <div class="smoke-cloud-inner m1"></div>
+                        <div class="smoke-cloud-inner m2"></div>
+                        <div class="smoke-cloud-inner m3"></div>
+                        <div class="smoke-cloud-inner m4"></div>
+                    </div>
+
+                    <!-- 3D Audio Box Container -->
+                    <div style="width: 185px; height: 235px; position: relative; transform-style: preserve-3d; transform: rotateY(-14deg) rotateX(5deg); transition: transform 0.4s ease; z-index: 3; box-shadow: -15px 15px 35px rgba(0,0,0,0.9), 0 0 30px rgba(168, 85, 247, 0.5); border-radius: 14px; overflow: hidden; border: 1.5px solid rgba(192, 132, 252, 0.7); background: linear-gradient(145deg, #160a2b 0%, #08040f 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 18px 14px;">
+                        
+                        <!-- Top Audio Header & Equalizer -->
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="background: rgba(168, 85, 247, 0.35); border: 1px solid var(--accent-purple-bright); color: #ffffff; font-size: 0.65rem; font-weight: 800; padding: 3px 8px; border-radius: 99px; letter-spacing: 0.5px;">VERSION AUDIO</span>
+                            <div style="display: flex; align-items: center; gap: 3px; height: 18px;">
+                                <div class="audio-eq-bar"></div>
+                                <div class="audio-eq-bar"></div>
+                                <div class="audio-eq-bar"></div>
+                                <div class="audio-eq-bar"></div>
+                                <div class="audio-eq-bar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center Audio Glowing Icon & Play Button -->
+                        <div style="text-align: center; margin: 12px 0;">
+                            <div style="width: 60px; height: 60px; margin: 0 auto; border-radius: 50%; background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #ffffff; box-shadow: 0 0 25px rgba(168, 85, 247, 0.85), inset 0 1px 0 rgba(255,255,255,0.4); border: 2px solid #c084fc;">
+                                <i class="fa-solid fa-headphones"></i>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Title & Details -->
+                        <div style="text-align: center;">
+                            <div style="color: #ffffff; font-family: var(--font-heading); font-size: 0.95rem; font-weight: 900; line-height: 1.2; letter-spacing: 0.5px; margin-bottom: 4px; text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);">
+                                AUDIO MP3 INTÉGRÉ
+                            </div>
+                            <div style="color: var(--accent-purple-glow); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+                                GUIDE + 3 BONUS
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT / TEXT CONTENT -->
+                <div style="flex: 1; min-width: 280px;">
+                    <h4 style="color: #ffffff; font-size: 1.4rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                        <i class="fa-solid fa-headphones" style="color: var(--accent-purple-bright);"></i>
+                        <span>VERSION AUDIO MP3 INTÉGRÉE</span>
+                    </h4>
+                    <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.65; margin-bottom: 18px;">
+                        Écoute l'intégralité du guide ultime et de l'ensemble des bonus en déplacement.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="color: #ffffff; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright);"></i> Écoute illimitée des 18 leviers d'attractivité du guide
+                        </div>
+                        <div style="color: #ffffff; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright);"></i> Écoute illimitée des 3 Bonus offerts
+                        </div>
+                        <div style="color: #ffffff; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright);"></i> Format Audio Haute Définition (MP3 HD)
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- 6 MODULES 3D MOCKUP GRID WITH DIRECT MOCKUP SMOKE AND CUSTOM IMAGES -->
@@ -2145,6 +2244,9 @@
                     <div class="bonus-card-body">
                         <h4>Check-list “Apparence Maîtrisée”</h4>
                         <p>Une check-list rapide à utiliser avant chaque sortie pour t'assurer d'une tenue, d'une posture et d'une attitude irréprochables sans douter.</p>
+                        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); padding: 3px 10px; border-radius: var(--radius-full); color: #f59e0b; font-size: 0.78rem; font-weight: 800; margin-top: 10px;">
+                            <i class="fa-solid fa-headphones"></i> Version Audio MP3 Incluse
+                        </div>
                     </div>
                 </div>
 
@@ -2185,6 +2287,9 @@
                     <div class="bonus-card-body">
                         <h4>Les Erreurs Invisibles</h4>
                         <p>Révèle les pièges subtils faits par 90% des hommes qui gâchent leur charisme : attitudes, détails vestimentaires et langage corporel à corriger.</p>
+                        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); padding: 3px 10px; border-radius: var(--radius-full); color: #f59e0b; font-size: 0.78rem; font-weight: 800; margin-top: 10px;">
+                            <i class="fa-solid fa-headphones"></i> Version Audio MP3 Incluse
+                        </div>
                     </div>
                 </div>
 
@@ -2225,6 +2330,9 @@
                     <div class="bonus-card-body">
                         <h4>Routine d'Assurance Visuelle</h4>
                         <p>Une routine quotidienne de quelques minutes pour ancrer automatiquement un regard confiant, une posture droite et une présence naturelle.</p>
+                        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); padding: 3px 10px; border-radius: var(--radius-full); color: #f59e0b; font-size: 0.78rem; font-weight: 800; margin-top: 10px;">
+                            <i class="fa-solid fa-headphones"></i> Version Audio MP3 Incluse
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2247,8 +2355,9 @@
                         <i class="fa-solid fa-circle-check" style="color: var(--accent-crimson-bright);"></i>
                         <span>ACCÈS IMMÉDIAT AU PROGRAMME "LE GUIDE ULTIME POUR UN GLOW UP MASCULIN"</span>
                     </div>
-                    <div style="color: var(--text-dim); font-size: 0.9rem; margin-left: 30px; margin-bottom: 18px;">
-                        Format numérique téléchargeable sécurisé
+                    <div style="color: var(--text-dim); font-size: 0.9rem; margin-left: 30px; margin-bottom: 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                        <span style="color: var(--text-muted); font-weight: 700;"><i class="fa-solid fa-book-open" style="color: var(--accent-purple-bright); margin-right: 4px;"></i> Format Ebook PDF HD</span>
+                        <span style="color: #f59e0b; font-weight: 800;"><i class="fa-solid fa-headphones" style="margin-right: 4px;"></i> + Version Audio MP3 Téléchargeable (Inclus)</span>
                     </div>
 
                     <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 12px;">
@@ -2257,15 +2366,19 @@
                             <span style="color: var(--text-muted); font-size: 0.92rem; white-space: nowrap;">Valeur : 19 800 FCFA / 30 €</span>
                         </li>
                         <li style="color: var(--text-main); font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-                            <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-gift" style="color: var(--accent-gold);"></i> BONUS #1 : Check-list “Apparence Maîtrisée”</span>
+                            <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-headphones" style="color: var(--accent-gold);"></i> VERSION AUDIO MP3 HAUTE DÉFINITION (Tout Le Guide)</span>
+                            <span style="color: var(--accent-gold); font-size: 0.92rem; white-space: nowrap;">Valeur : 15 000 FCFA / 23 € (OFFERT)</span>
+                        </li>
+                        <li style="color: var(--text-main); font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                            <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-gift" style="color: var(--accent-gold);"></i> BONUS #1 : Check-list “Apparence Maîtrisée” (+ Audio MP3)</span>
                             <span style="color: var(--accent-gold); font-size: 0.92rem; white-space: nowrap;">Valeur : 12 500 FCFA / 19 € (GRATUIT)</span>
                         </li>
                         <li style="color: var(--text-main); font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-                            <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-gift" style="color: var(--accent-gold);"></i> BONUS #2 : Les 10 Erreurs Invisibles à éviter</span>
+                            <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-gift" style="color: var(--accent-gold);"></i> BONUS #2 : Les 10 Erreurs Invisibles à éviter (+ Audio MP3)</span>
                             <span style="color: var(--accent-gold); font-size: 0.92rem; white-space: nowrap;">Valeur : 17 500 FCFA / 27 € (GRATUIT)</span>
                         </li>
                         <li style="color: var(--text-main); font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; padding-bottom: 4px; flex-wrap: wrap; gap: 8px;">
-                            <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-gift" style="color: var(--accent-gold);"></i> BONUS #3 : Routine d'Assurance Visuelle (30 Jours)</span>
+                            <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-gift" style="color: var(--accent-gold);"></i> BONUS #3 : Routine d'Assurance Visuelle (+ Audio MP3)</span>
                             <span style="color: var(--accent-gold); font-size: 0.92rem; white-space: nowrap;">Valeur : 11 000 FCFA / 17 € (GRATUIT)</span>
                         </li>
                     </ul>
@@ -2396,7 +2509,17 @@
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>2. Ai-je besoin de changer complètement mon apparence ?</span>
+                        <span>2. Comment se présente la version audio du guide et des bonus ?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>L'intégralité du guide et de l'ensemble des bonus sont fournis sous deux formats : le format Ebook (PDF HD) pour la lecture visuelle, ET la Version Audio MP3 Haute Définition en écoute directe.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>3. Ai-je besoin de changer complètement mon apparence ?</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
