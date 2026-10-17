@@ -145,6 +145,33 @@
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
         }
 
+        /* Sticky Header CTA Button */
+        .top-bar-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            border: 1px solid #c084fc;
+            box-shadow: 0 0 16px rgba(168, 85, 247, 0.7);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+        .top-bar-cta-btn:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.95), 0 4px 15px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);
+            color: #ffffff !important;
+        }
+
         /* CLEARLY VISIBLE BACKGROUND CHARACTER ARTWORK ON ALL SECTIONS */
         .section-padding {
             padding: 95px 0;
@@ -1463,6 +1490,7 @@
             .container { padding: 0 14px; }
             .top-bar { padding: 8px 8px; font-size: 0.78rem; gap: 6px; }
             .top-bar .timer-box { font-size: 0.9rem; padding: 2px 8px; }
+            .top-bar-cta-btn { font-size: 0.74rem; padding: 5px 12px; gap: 5px; }
 
             /* Smartphone Background Framing */
             .bg-section-blur::before {
@@ -1713,6 +1741,12 @@
         <div class="urgency-text" style="font-size:0.85rem; opacity: 0.95;">
             (OFFRE FLASH -50% : LIMITÉE AUX 50 PREMIÈRES PERSONNES)
         </div>
+        
+        <!-- Sticky Header CTA Button -->
+        <a href="https://syalpfmx.mychariow.shop/prd_9gal1zvj/checkout" class="top-bar-cta-btn">
+            <span>OBTENIR LE GUIDE (-50%)</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
         
                 <!-- Multi-Language Selector Widget with HD Country Flags -->
         <div class="lang-switcher-wrap">
