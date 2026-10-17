@@ -27,3 +27,8 @@ deploy_glowup/
 !bonus2.html
 !bonus3.html
 
+
+# Local Netlify folder
+.netlify
+
+CNAME
