@@ -6,16 +6,9 @@
     <title>Le Guide ULTIME Pour un Glow Up Masculin </title>
     <meta name="description" content="Découvrez le guide ultime pour augmenter votre attractivité physique immédiatement. ">
     
-    <!-- Preconnect & DNS-Prefetch for Ultra Fast Loading -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://flagcdn.com">
-    <link rel="dns-prefetch" href="https://syalpfmx.mychariow.shop">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://flagcdn.com" crossorigin>
-    <link rel="preconnect" href="https://syalpfmx.mychariow.shop" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- FontAwesome Icons -->
@@ -74,21 +67,15 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeSpeed;
         }
 
         body {
             background-color: var(--bg-void);
             color: var(--text-main);
             position: relative;
-            overflow-x: hidden;
-            overscroll-behavior-y: none;
-            -webkit-overflow-scrolling: touch;
         }
 
-        /* Ambient Dark Glow Spheres - GPU Layer Promoted */
+        /* Ambient Dark Glow Spheres */
         .ambient-glow {
             position: fixed;
             border-radius: 50%;
@@ -96,9 +83,6 @@
             z-index: 0;
             pointer-events: none;
             opacity: 0.25;
-            will-change: transform;
-            transform: translate3d(0, 0, 0);
-            contain: paint layout;
         }
         .glow-1 {
             width: 550px;
@@ -188,26 +172,44 @@
             color: #ffffff !important;
         }
 
-        /* HIGH PERFORMANCE RENDERING ENGINE (CONTENT-VISIBILITY & GPU ACCELERATION) */
+        /* CLEARLY VISIBLE BACKGROUND CHARACTER ARTWORK ON ALL SECTIONS */
         .section-padding {
             padding: 95px 0;
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid var(--border-subtle);
-            content-visibility: auto;
-            contain-intrinsic-size: 1px 750px;
         }
 
+        .bg-section-blur {
+            position: relative;
+        }
+        .bg-section-blur::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            background-image: url('images/peaky_blinders_hero_man.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            filter: blur(1px) brightness(0.72) contrast(1.08);
+            transform: scale(1.03);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .bg-section-blur::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(3, 2, 6, 0.65) 0%, rgba(9, 6, 18, 0.55) 50%, rgba(3, 2, 6, 0.75) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+
+
+        /* HERO SECTION */
         .hero-section {
             padding: 90px 0 110px;
-            content-visibility: visible !important;
-        }
-
-        /* GPU Layer Isolation for Smooth 60-120fps Interaction */
-        .card-dark, .bonus-card, .transform-card-wrapper, .btn-cta, .top-bar-cta-btn {
-            will-change: transform;
-            backface-visibility: hidden;
-            transform: translateZ(0);
         }
 
         .hero-grid {
@@ -714,12 +716,11 @@
             bottom: 10px;
             border-radius: 50%;
             background: radial-gradient(circle at center, rgba(18, 15, 28, 0.45) 0%, rgba(8, 6, 14, 0.25) 50%, rgba(225, 29, 72, 0.08) 75%, transparent 100%);
-            filter: blur(14px);
+            filter: blur(18px);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);
             animation: emergeDirectFromMockup 5.2s infinite ease-out;
             opacity: 0;
             pointer-events: none;
-            will-change: transform, opacity;
-            transform: translate3d(0, 15px, 0);
         }
 
         .smoke-cloud-inner.m1 { left: 10%; width: 110px; height: 110px; animation-delay: 0s; }
@@ -729,18 +730,18 @@
 
         @keyframes emergeDirectFromMockup {
             0% {
-                transform: translate3d(0, 15px, 0) scale(0.4) rotate(0deg);
+                transform: translateY(15px) scale(0.4) rotate(0deg);
                 opacity: 0;
             }
             30% {
                 opacity: 0.42;
             }
             65% {
-                transform: translate3d(0, -80px, 0) scale(1.6) rotate(60deg);
+                transform: translateY(-80px) scale(1.6) rotate(60deg);
                 opacity: 0.22;
             }
             100% {
-                transform: translate3d(0, -170px, 0) scale(2.5) rotate(120deg);
+                transform: translateY(-170px) scale(2.5) rotate(120deg);
                 opacity: 0;
             }
         }
@@ -1230,9 +1231,6 @@
                 filter: blur(1px) brightness(0.70) contrast(1.1);
                 z-index: 0;
                 pointer-events: none;
-                will-change: transform;
-                transform: translate3d(0, 0, 0);
-                backface-visibility: hidden;
             }
 
             /* Remove per-section background breaks so body background covers ALL sections continuously */
@@ -1428,9 +1426,6 @@
             .section-title { font-size: 1.85rem; line-height: 1.3; }
             .section-title-wrap { margin-bottom: 35px; }
             .section-subtitle-tag { font-size: 0.8rem; letter-spacing: 1.5px; }
-
-            /* Disable heavy continuous smoke blur animations on mobile for maximum fps fluidity */
-            .mockup-direct-smoke { display: none !important; }
 
             /* Mobile Background Image Framing & Alignment */
             .bg-section-blur::before {
@@ -1845,7 +1840,7 @@
                 <!-- Full Visual Transformation #1 -->
                 <div class="transform-card-wrapper">
                     <div class="transform-img-box">
-                        <img src="images/testimonial_before_after_1.jpg" loading="lazy" decoding="async" alt="Transformation Glow Up Avant / Après — Lucas (Lyon, France)">
+                        <img src="images/testimonial_before_after_1.jpg" alt="Transformation Glow Up Avant / Après — Lucas (Lyon, France)">
                     </div>
                     <div class="transform-info-bar">
                         <div class="transform-author-name"><i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright); margin-right: 6px;"></i> Lucas, 19 ans</div>
@@ -1856,7 +1851,7 @@
                 <!-- Full Visual Transformation #2 -->
                 <div class="transform-card-wrapper">
                     <div class="transform-img-box">
-                        <img src="images/testimonial_before_after_2.png" loading="lazy" decoding="async" alt="Transformation Glow Up Avant / Après — Maxime (Paris, France)">
+                        <img src="images/testimonial_before_after_2.png" alt="Transformation Glow Up Avant / Après — Maxime (Paris, France)">
                     </div>
                     <div class="transform-info-bar">
                         <div class="transform-author-name"><i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright); margin-right: 6px;"></i> Maxime, 21 ans</div>
@@ -1867,7 +1862,7 @@
                 <!-- Full Visual Transformation #3 -->
                 <div class="transform-card-wrapper">
                     <div class="transform-img-box">
-                        <img src="images/testimonial_before_after_3.png" loading="lazy" decoding="async" alt="Transformation Glow Up Avant / Après — Théo (Abidjan, Côte d'Ivoire)">
+                        <img src="images/testimonial_before_after_3.png" alt="Transformation Glow Up Avant / Après — Théo (Abidjan, Côte d'Ivoire)">
                     </div>
                     <div class="transform-info-bar">
                         <div class="transform-author-name"><i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright); margin-right: 6px;"></i> Théo, 26 ans</div>
@@ -2487,7 +2482,7 @@
                 <!-- Full Visual Transformation #1 -->
                 <div class="transform-card-wrapper">
                     <div class="transform-img-box">
-                        <img src="images/testimonial_before_after_1.jpg" loading="lazy" decoding="async" alt="Transformation Glow Up Avant / Après — Lucas (Lyon, France)">
+                        <img src="images/testimonial_before_after_1.jpg" alt="Transformation Glow Up Avant / Après — Lucas (Lyon, France)">
                     </div>
                     <div class="transform-info-bar">
                         <div class="transform-author-name"><i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright); margin-right: 6px;"></i> Lucas, 19 ans</div>
@@ -2498,7 +2493,7 @@
                 <!-- Full Visual Transformation #2 -->
                 <div class="transform-card-wrapper">
                     <div class="transform-img-box">
-                        <img src="images/testimonial_before_after_2.png" loading="lazy" decoding="async" alt="Transformation Glow Up Avant / Après — Maxime (Paris, France)">
+                        <img src="images/testimonial_before_after_2.png" alt="Transformation Glow Up Avant / Après — Maxime (Paris, France)">
                     </div>
                     <div class="transform-info-bar">
                         <div class="transform-author-name"><i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright); margin-right: 6px;"></i> Maxime, 21 ans</div>
@@ -2509,7 +2504,7 @@
                 <!-- Full Visual Transformation #3 -->
                 <div class="transform-card-wrapper">
                     <div class="transform-img-box">
-                        <img src="images/testimonial_before_after_3.png" loading="lazy" decoding="async" alt="Transformation Glow Up Avant / Après — Théo (Abidjan, Côte d'Ivoire)">
+                        <img src="images/testimonial_before_after_3.png" alt="Transformation Glow Up Avant / Après — Théo (Abidjan, Côte d'Ivoire)">
                     </div>
                     <div class="transform-info-bar">
                         <div class="transform-author-name"><i class="fa-solid fa-circle-check" style="color: var(--accent-purple-bright); margin-right: 6px;"></i> Théo, 26 ans</div>
@@ -2848,7 +2843,7 @@
             }
         });
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
